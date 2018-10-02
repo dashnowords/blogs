@@ -1,41 +1,41 @@
 # 个人博客 -《大史住在大前端》
-:whale: 喜欢请点Star~
-> 野生前端码农的内功修炼和自我修养
+> 🐳 野生前端码农的内功修炼和自我修养笔记，喜欢请点Star~
 
-## 目录说明
+**博客园主页地址：**[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
 
----
-
-- `/structure`目录中为【数据结构】习题的javascript示例代码。
-- 博客园地址：[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
-
-## 博文目录【Updating】
+## 博文专题
 
 ---
 
-### :surfer:《一统江湖的大前端》
+### :maple_leaf:《一统江湖的大前端》
 
-聊聊做网页以外的各种玩法。
+探索前端技术在网页之外的世界。
 
-[1.PPT制作库impress.js【2018-4-23】](https://www.cnblogs.com/dashnowords/p/9609301.html)
-
-[2.Mock.js + Node.js 如何与后端潇洒分手【2018-4-28】](https://www.cnblogs.com/dashnowords/p/9632492.html)
-
-[3.DOClever——你的Postman有点Low【2018-4-28】](https://www.cnblogs.com/dashnowords/p/9609307.html)
-
-[4.shell.js——穿上马甲我照样认识你【2018-5-2】](https://www.cnblogs.com/dashnowords/p/9632493.html)
-
-[5.editorconfig + eslint——你的代码里藏着你的优雅【2018-5-23】](https://www.cnblogs.com/dashnowords/p/9632494.html)
-
-
+地址：[https://www.cnblogs.com/dashnowords/p/9609301.html](https://www.cnblogs.com/dashnowords/p/9609301.html)
 
 ### :maple_leaf:《javascript基础修炼》
 
-### 《webpack4.0各个击破》
+javascript的基础知识学习笔记。
 
-### 《大前端的自动化工厂》
+地址：https://www.cnblogs.com/dashnowords/p/9404237.html
 
-### 《数据结构练习》
+### :maple_leaf:《webpack4.0各个击破》
+
+详解webpack4.0，但不仅仅是关于`webpack`。
+
+地址：https://www.cnblogs.com/dashnowords/p/9572755.html
+
+### :maple_leaf:《大前端的自动化工厂》
+
+前端工程化及前端自动化相关技术。
+
+地址：https://www.cnblogs.com/dashnowords/p/9460705.html
+
+### :octopus:《数据结构练习》
+
+javascript语言，学习和练习数据结构知识。
+
+示例代码地址：`/structure`目录
 
 
 
