@@ -1,0 +1,5 @@
+Tom=>Tom is a boy
+Jack=>Jack is a boy too
+Apple=>Apple is fruit
+Donald=>Donald is the president of USA
+Jack=>Jack is also a programmer
