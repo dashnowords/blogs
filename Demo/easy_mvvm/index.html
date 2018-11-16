@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现一个简单的MVVM</title>
+    <style>
+       button{
+          background-color: #3498db;
+          color:white;
+          border:none;
+          padding:12px;
+          cursor:pointer;
+       }
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <input type="text" d-model="myname">
+        <br>
+        输入的是:<span d-bind="myname"></span>
+        <br>
+        <button d-click="alarm()">广播报警</button>
+    </div>
+    <script src="subscriber.js"></script>
+    <script src="observer.js"></script>
+    <script src="strategy.js"></script>
+    <script src="compiler.js"></script>
+    <script src="dash.js"></script>
+    <script>
+        /**
+         * 实现一个MVVM引擎Dash
+         */
+        var options = {
+            el:'app',
+            data:{
+                myname:'僵尸'
+            },
+            methods:{
+                alarm:function (node,event) {
+                    window.alert(`一大波【${this.data.myname}】正在靠近!`);
+                }
+            }
+        }
+        //初始化
+        var vm = new Dash(options);
+    </script>
+</body>
+</html>
+
