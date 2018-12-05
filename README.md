@@ -31,9 +31,11 @@ javascript的基础知识学习笔记。
 
 地址：https://www.cnblogs.com/dashnowords/p/9460705.html
 
-### :octopus:《数据结构练习》
+### :octopus:《野生前端的数据结构和算法练习》
 
 javascript语言，学习和练习数据结构知识。
+
+地址：https://www.cnblogs.com/dashnowords/p/9736499.html
 
 示例代码地址：`/structure`目录
 
