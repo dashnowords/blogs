@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .main{
+        overflow:hidden;
+    }
+      .sideBar{
+        float:left;
+        width:200px;
+      }
+      .sideBarContainer{
+        margin:0;
+        list-style: none;
+        background-color: #3498db;
+        color:white;
+        padding:0;
+        text-align:center;
+      }
+      .sideBarItem{
+        padding:10px 20px;
+        border-bottom:2px solid white;
+      }
+      .mainContent{
+        overflow:hidden;
+        margin-left:200px;
+      }
+      .header, .footer{
+        text-align:center;
+        background-color: #1abc9c;
+        color:white;
+        height:50px;
+      }
+      .coreContent{
+        display:flex;
+        height:300px;
+      }
+      .coreContent div{
+        border-right:1px solid white;
+        background-color: #DA5961;
+        color:white;
+        padding:20px;
+        text-align:center;
+        flex:1;
+      }
+
+    </style>
+</head>
+<body>
+   <div id="anchor"></div>
+   <button id="btn">点击改变Virtual-DOM部分属性</button>
+   <script src="element.js"></script>
+   <script src="domdiff.js"></script>
+   <script src="addpatch.js"></script>
+   <script src="main.js"></script>
+</body>
+</html>
