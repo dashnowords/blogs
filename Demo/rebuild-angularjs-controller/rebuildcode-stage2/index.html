@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app="helloworld" id="body">
+     <nav>
+       <ul class="nav-list">
+         <li class="nav-item"><a ui-sref="hello" ui-sref-active="active">Hello</a></li>
+         <li class="nav-item"><a ui-sref="about" ui-sref-active="active">About</a></li>
+         <li class="nav-item"><a ui-sref="react" ui-sref-active="active">React</a></li>
+       </ul>
+     </nav>
+    <div class="content-zone">
+      <ui-view></ui-view>
+    </div>
+
+  </body>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="router.js"></script>
+    <script src="custom/sidebarService.js"></script>
+    <script src="custom/heroService.js"></script>
+    <script src="custom/modalService.js"></script>
+    <script src="custom/directive.js"></script>
+    <script src="controllers/hellocontroller.js"></script>
+    <script src="controllers/choice2controller.js"></script>
+    <script src="pages/choices/ctrlpanel/ctrlpanel.js"></script>
+    <script src="pages/choices/table/table.js"></script>
+  <script>
+      app.controller('AboutController',function ($scope) {
+         console.log('AboutController Loaded');
+      })
+      .controller('ReactController',function ($scope) {
+         console.log('ReactController Loaded');
+      })
+      .controller('Choice0Controller',function ($scope) {
+         console.log('Choice0Controller Loaded');
+      })
+      .controller('Choice1Controller',function ($scope) {
+         console.log('Choice1Controller Loaded');
+      })
+      .controller('Choice3Controller',function ($scope) {
+         console.log('Choice3Controller Loaded');
+      })
+      .controller('Choice4Controller',function ($scope) {
+         console.log('Choice4Controller Loaded');
+      })
+      .controller('Choice5Controller',function ($scope) {
+         console.log('Choice5Controller Loaded');
+      })
+  </script>
+</html>

@@ -1,0 +1,22 @@
+<div class="table-zone" id="tablestage">
+    <table id="table1" class="table table-primary" click-trans="pushTable">
+        <thead>
+            <tr>
+                <th ng-repeat="head in headers" ng-bind="head">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in tableData track by $index">
+                <td ng-bind="item.name">
+                </td>
+                <td ng-bind="item.age">
+                </td>
+                <td ng-bind="item.hero">
+                </td>
+                <td ng-bind="item.power">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

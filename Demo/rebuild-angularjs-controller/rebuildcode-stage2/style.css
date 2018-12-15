@@ -1,0 +1,62 @@
+.nav-list{
+    padding-left:0px;
+    padding-top:10px;
+    overflow:hidden;
+}
+.nav-item{
+    margin:10px;
+    padding:0;
+    list-style: none;
+    float:left;
+}
+.nav-item > a {
+    background-color: #3498db;
+    color:#353535;
+    text-decoration: none;
+    padding:10px 20px;
+}
+
+.nav-item > a.active{
+    background-color: #DA5961;
+    color:white;
+}
+
+.content-zone{
+    clear:left;
+    margin-left:10px;
+    margin-top:10px;
+}
+.uiview-content{
+    background-color: #f2f2f2;
+    margin-right:10px;
+    height:calc(100% - 100px);
+}
+
+/*toast浮动栏*/
+.toast-active{
+    position:absolute;
+    width:200px;
+    top:10%;
+    right:100px;
+    padding:10px 20px;
+    border-radius:10px;
+    background-color: rgba(242,222,222);
+    color:rgba(217,83,79);
+    animation:.5s slideUp cubic-bezier(.64,1.95,.81,.53);
+    animation-direction:alternate;
+}
+.toast-active>h4{
+   font-size:18px;
+   font-weight:500;
+}
+
+@keyframes slideUp{
+   from{
+      transform:translateY(50px);
+      opacity:0;
+   }
+   to{
+      transform: translateY(0);
+      opacity:1;
+   }
+}

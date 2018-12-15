@@ -1,0 +1,33 @@
+.nav-list{
+    padding-left:0px;
+    padding-top:10px;
+    overflow:hidden;
+}
+.nav-item{
+    margin:10px;
+    padding:0;
+    list-style: none;
+    float:left;
+}
+.nav-item > a {
+    background-color: #3498db;
+    color:#353535;
+    text-decoration: none;
+    padding:10px 20px;
+}
+
+.nav-item > a.active{
+    background-color: #DA5961;
+    color:white;
+}
+
+.content-zone{
+    clear:left;
+    margin-left:10px;
+    margin-top:10px;
+}
+.uiview-content{
+    background-color: #f2f2f2;
+    margin-right:10px;
+    height:calc(100% - 100px);
+}

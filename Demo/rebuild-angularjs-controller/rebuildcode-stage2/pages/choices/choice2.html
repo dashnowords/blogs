@@ -1,0 +1,10 @@
+<!--控制栏-->
+<div ui-view="ctrlPanel"></div>
+<!--表格区-->
+<div ui-view="table"></div>
+<!--计算信息-->
+<div class="calc-info">
+    过滤且排序后的名称包含:
+    <span class="label label-success" ng-repeat="heroname in filterNames" ng-bind="heroname">
+    </span>
+</div>

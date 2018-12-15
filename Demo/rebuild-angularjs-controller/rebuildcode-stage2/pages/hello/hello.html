@@ -1,0 +1,47 @@
+
+<div class="uiview-content">
+    <div class="row">
+        <div class="col col-md-1">
+            <ul class="sidebar">
+                <li class="sidebar-item"
+                    ng-class="{true:'sidebar-item-active'}[item.active]"
+                    ng-bind="item.label" 
+                    ng-repeat="item in sidebarList track by $index"
+                    ng-click="activate($index)">
+                </li>
+            </ul>
+        </div>
+        <div class="col col-md-11">
+             <ui-view></ui-view>
+        </div>
+    </div>
+</div>
+
+<style>
+   .sidebar{
+      list-style: none;
+      background-color: #1abc9c;
+      text-align:center;
+      padding-left:0;
+      margin-top:20px;
+   }
+   .sidebar-item{
+      padding:10px 20px;
+      border-bottom:2px solid white;
+      cursor:pointer;
+   }
+   .sidebar-item-active{
+      background-color: white;
+      font-weight:600;
+      border:2px solid #1abc9c;
+   }
+   .toolbar{
+    margin-top:20px;
+   }
+   .label{
+    margin-left:5px;
+   }
+   #table1{
+    transition:all .3s cubic-bezier(.64,1.95,.81,.53);
+   }
+</style>

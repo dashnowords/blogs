@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app="helloworld">
+     <nav>
+       <ul class="nav-list">
+         <li class="nav-item"><a ui-sref="hello" ui-sref-active="active">Hello</a></li>
+         <li class="nav-item"><a ui-sref="about" ui-sref-active="active">About</a></li>
+         <li class="nav-item"><a ui-sref="react" ui-sref-active="active">React</a></li>
+       </ul>
+     </nav>
+    <div class="content-zone">
+      <ui-view></ui-view>
+    </div>
+  </body>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+    <script src="lib/underscore.js"></script>
+  <script>
+      angular.module('helloworld', ['ui.router'])
+      .config(function($stateProvider) {
+          $stateProvider.state({
+            name: 'hello',
+            url: '/hello',
+            templateUrl: './pages/hello/hello.html',
+            controller: 'HelloController'
+          })
+          .state({
+            name: 'about',
+            url: '/about',
+            templateUrl: './pages/about/about.html',
+            controller: 'AboutController'
+          })
+          .state({
+            name: 'react',
+            url: '/react',
+            templateUrl: './pages/react/react.html',
+            controller: 'ReactController'
+          });
+      })
+      .controller('HelloController',['$scope','$http',function ($scope, $http) {
+         console.log('HelloController Loaded');
+         $scope.sidebarList = [{
+            label:'choice1',
+            active:true
+         },{
+            label:'choice2',
+            active:false
+         },{
+            label:'choice3',
+            active:false
+         },{
+            label:'choice4',
+            active:false
+         },{
+            label:'choice5',
+            active:false
+         },{
+            label:'choice6',
+            active:false
+         }];
+
+         $scope.headers = ['Name','Age','Hero','Power'];
+         $scope.activeSidebarItem = 0;
+         $scope.filterNames = [];
+         $scope.params = {
+            repo:'',
+            branch:''
+         }
+         $scope.tableData = [];
+
+         //进入页面时需要自动查一次
+         $http.get('http://localhost:8926/users').then(function (response) {
+           if (!response.data.status) {
+              $scope.tableData = response.data.data;
+              $scope.rebuild(); 
+           }
+         });
+
+         /**
+          * 激活侧边栏选项
+          * @param  {[type]} $scope [description]
+          * @return {[type]}        [description]
+          */
+         $scope.activate = function(index) {
+           for(var i = 0; i < $scope.sidebarList.length; i++){
+                $scope.sidebarList[i].active = i === index ? true : false;
+           }
+           $scope.sidebarList[index].active = true;
+           $scope.activeSidebarItem = index;
+         }
+
+         /**
+          * 重组表头
+          */
+         $scope.rebuild = function () {
+           var existName = {};
+           var result = [];
+           for(var i = 0; i < $scope.tableData.length; i++){
+               if (existName[$scope.tableData[i].name] === undefined) {
+                   result.push($scope.tableData[i].name);
+                   existName[$scope.tableData[i].name] = 1;
+               }
+           }
+           $scope.filterNames = result.sort((a,b)=>{return a > b});
+         }
+
+         /**
+          * 操作DOM
+          */
+         $scope.handleDOM = function () {
+            var table = document.getElementById('table1');
+            var stage = document.getElementById('tablestage');
+            angular.element(table).css({transform:'rotateX(10deg)',backgroundColor:'#34495e',color:'white'});
+            angular.element(stage).css('perspective','300px');
+         };
+
+         /**
+          * 查询数据
+          */
+         $scope.search = function () {
+          console.log($scope.params)
+          if ($scope.params.repo) {
+                $http.get('http://localhost:8926/users',{params:{repo:$scope.params.repo}}).then(function (response) {
+                 if (!response.data.status) {
+                    $scope.tableData = response.data.data;
+                    $scope.rebuild();
+                 }
+               });
+          } else {
+             alert('未填写查询参数');
+          }
+         }
+
+      }])
+      .controller('AboutController',function ($scope) {
+         console.log('AboutController Loaded');
+      })
+      .controller('ReactController',function ($scope) {
+         console.log('ReactController Loaded');
+      })
+  </script>
+</html>
