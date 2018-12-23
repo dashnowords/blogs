@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不同编程思想的对比体验</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+      <div>
+           <h3>Canvas Animation</h3>
+           <canvas width="800" height="400" id="canvas1"></canvas>
+      </div>
+      <div>
+           <h3>Rxjs Animation</h3>
+           <canvas width="800" height="400" id="canvas2"></canvas>
+      </div>
+    </div>
+    <script>
+       //初始化canvas和资源
+        var canvas1 = document.getElementById('canvas1');
+        var ctx1 = canvas1.getContext("2d");
+        var canvas2 = document.getElementById('canvas2');
+        var ctx2 = canvas2.getContext("2d");
+        var bgImg=new Image();
+        bgImg.src="background.jpg";
+        var roleImg = new Image();
+        roleImg.src="role.png";
+    </script>
+    <script src="node_modules/rx/dist/rx.all.js"></script>
+    <script src="main.canvas.js"></script>
+    <script src="main.rx.js"></script>
+</body>
+</html>

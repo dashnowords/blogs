@@ -1,0 +1,13 @@
+html,body{
+    padding:0;
+    margin:0;
+}
+.main div{
+    display:inline-block;
+    color:#3498db;
+}
+canvas{
+    background-color: #f2f2f2;
+    width:800px;
+    height:400px;
+}

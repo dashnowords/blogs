@@ -1,0 +1,90 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-run07 {
+  background-image: url(./sprite.png);
+  background-position: 0px 0px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run01 {
+  background-image: url(./sprite.png);
+  background-position: 0px -68px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run03 {
+  background-image: url(./sprite.png);
+  background-position: 0px -136px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run04 {
+  background-image: url(./sprite.png);
+  background-position: 0px -204px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run05 {
+  background-image: url(./sprite.png);
+  background-position: 0px -272px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run06 {
+  background-image: url(./sprite.png);
+  background-position: 0px -340px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run02 {
+  background-image: url(./sprite.png);
+  background-position: 0px -408px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run08 {
+  background-image: url(./sprite.png);
+  background-position: 0px -476px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run09 {
+  background-image: url(./sprite.png);
+  background-position: 0px -544px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run10 {
+  background-image: url(./sprite.png);
+  background-position: 0px -612px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run11 {
+  background-image: url(./sprite.png);
+  background-position: 0px -680px;
+  width: 54px;
+  height: 64px;
+}
+.icon-run12 {
+  background-image: url(./sprite.png);
+  background-position: 0px -748px;
+  width: 54px;
+  height: 64px;
+}
