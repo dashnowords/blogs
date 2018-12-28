@@ -170,6 +170,10 @@ ___
 
 [【响应式编程的思维艺术】 （2）响应式Vs面向对象](https://www.cnblogs.com/dashnowords/p/10163367.html)
 
+[【响应式编程的思维艺术】 （3）flatMap背后的代数理论Monad](https://www.cnblogs.com/dashnowords/p/10176213.html)
+
+[【响应式编程的思维艺术】 （4）从打飞机游戏理解并发与流的融合](https://www.cnblogs.com/dashnowords/p/10193087.html)
+
 
 ### :pencil:【2018年随笔】
 
