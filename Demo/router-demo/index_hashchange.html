@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HashChange基本使用</title>
+    <style>
+    #main {
+        height: 300px;
+        width: 500px;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding-top: 30px;
+        position:relative;
+    }
+
+    ul,
+    li {
+        padding: 0 10px;
+        text-align: center;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        background-color: #353535;
+        padding: 10px 20px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <p>前端三驾马车</p>
+        <ul>
+            <li><a href="#/angular">angular</a></li>
+            <li><a href="#/vue">vue</a></li>
+            <li><a href="#/react">react</a></li>
+        </ul>
+        <!-- 路由部分代码 -->
+        <div ui-view>
+        </div>
+    </div>
+    <script>
+    window.onload = function() {
+        //hash变化时触发
+        window.onhashchange = function(opt) {
+            console.log('hash has been changed to:', location.hash);
+        }
+    }
+
+    </script>
+</body>
+
+</html>

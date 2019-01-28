@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>哈希路由Demo</title>
+    <style>
+    #main {
+        height: 300px;
+        width: 500px;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding-top: 30px;
+        position:relative;
+    }
+
+    ul,
+    li {
+        padding: 0 10px;
+        text-align: center;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        background-color: #353535;
+        padding: 10px 20px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .font-xl {
+        position:relative;
+        font-weight: bold;
+        font-size: 18px;
+        color: #353535;
+        display:inline-block;
+        animation:.4s shake;
+    }
+
+    div[ui-view]{
+        text-align:left;
+        position:absolute;
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+@keyframes shake{
+   0%{
+      transform:rotate(20deg);
+   }
+   20%{
+      transform:rotate(0deg);
+   }
+   40%{
+      transform:rotate(-20deg);
+   }
+   60%{
+      transform:rotate(0deg);
+   }
+   80%{
+      transform:rotate(20deg);
+   }
+   100%{
+      transform:rotate(0deg);
+   }
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <p>前端三驾马车</p>
+        <ul>
+            <li><a href="#/angular">angular</a></li>
+            <li><a href="#/vue">vue</a></li>
+            <li><a href="#/react">react</a></li>
+        </ul>
+        <!-- 路由部分代码 -->
+        <div ui-view>
+        </div>
+    </div>
+    <script src="myHashRouter.js"></script>
+    <script>
+    window.onload = function() {
+        //注册路由
+        $router.when('#/angular', 'this is the page of <span class="font-xl">angular</span>')
+            .when('#/vue', 'this is the page of <span class="font-xl">Vue</span>')
+            .when('#/react', 'this is the page of <span class="font-xl">react</span>')
+            .otherwise('#/nomath', 'this is the page when no hash path matched.');
+
+        //启动路由
+        $router.init();
+    }
+
+    </script>
+</body>
+
+</html>

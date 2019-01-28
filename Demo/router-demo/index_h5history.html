@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>H5 History API基本使用</title>
+    <style>
+    #main {
+        height: 300px;
+        width: 500px;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding-top: 30px;
+        position: relative;
+    }
+
+    ul,
+    li {
+        padding: 0 10px;
+        text-align: center;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        background-color: #353535;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #panel {
+        width: 50%;
+        height: 100px;
+        background: #1abc9c;
+        color: white;
+        margin: auto;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <p>前端三驾马车</p>
+        <ul id="list">
+            <li>angular</li>
+            <li>vue</li>
+            <li>react</li>
+        </ul>
+        <div id="panel">
+        </div>
+    </div>
+    <script>
+    window.onload = function() {
+        //全局监听popstate事件
+        window.onpopstate = function(event) {
+            console.log(event);
+        };
+
+
+        //监听hashchange事件
+        window.onhashchange = function(event) {
+            console.log('catch HashChange event')
+        }
+
+        //点击按钮时改变state
+        document.querySelector('#list').addEventListener('click', function(event) {
+            if (event.target.nodeName == 'LI') {
+                var content = event.target.innerHTML;
+                var _newState;
+                _newState = {
+                    url: location.origin + '/' + content,
+                    title: document.title,
+                    state: content
+                };
+                //调用replaceState方法跳转
+                window.history.pushState(_newState, '', '/' + content);
+                console.log('you have change the router to :',content);
+            }
+        })
+    }
+
+    </script>
+</body>
+
+</html>
