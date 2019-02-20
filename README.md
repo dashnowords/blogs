@@ -174,10 +174,14 @@ ___
 
 [【响应式编程的思维艺术】 （4）从打飞机游戏理解并发与流的融合](https://www.cnblogs.com/dashnowords/p/10193087.html)
 
+[【响应式编程的思维艺术】 （5）Angular中Rxjs的应用示例](https://www.cnblogs.com/dashnowords/p/10409224.html)
 
 ### :pencil:【2018年随笔】
 
 ___
+
+
+[笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)
 
 [React组件方法中为什么要绑定this](https://www.cnblogs.com/dashnowords/p/9343383.html)
 
