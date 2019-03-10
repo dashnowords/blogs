@@ -5,6 +5,15 @@
 
 [TOC]
 
+### :point:【带着canvas去流浪】系列
+
+___
+
+>  用原生CanvasAPI实现Echarts图表
+
+[带着canvas去流浪（1）绘制柱状图](https://www.cnblogs.com/dashnowords/p/10506921.html)
+
+
 ### :whale:【一统江湖的大前端】系列
 
 ___
