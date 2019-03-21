@@ -13,6 +13,7 @@ ___
    
 [带着canvas去流浪（1）绘制柱状图](https://www.cnblogs.com/dashnowords/p/10506921.html)   
 [带着canvas去流浪（2）绘制折线图](https://www.cnblogs.com/dashnowords/p/10554552.html)
+[带着canvas去流浪（3）绘制饼图](https://www.cnblogs.com/dashnowords/p/10574646.html)
 
 
 ### :whale:【一统江湖的大前端】系列
