@@ -12,8 +12,9 @@ ___
 >  用原生CanvasAPI实现Echarts图表
    
 [带着canvas去流浪（1）绘制柱状图](https://www.cnblogs.com/dashnowords/p/10506921.html)   
-[带着canvas去流浪（2）绘制折线图](https://www.cnblogs.com/dashnowords/p/10554552.html)
-[带着canvas去流浪（3）绘制饼图](https://www.cnblogs.com/dashnowords/p/10574646.html)
+[带着canvas去流浪（2）绘制折线图](https://www.cnblogs.com/dashnowords/p/10554552.html)   
+[带着canvas去流浪（3）绘制饼图](https://www.cnblogs.com/dashnowords/p/10574646.html)   
+[带着canvas去流浪（4）绘制散点图](https://www.cnblogs.com/dashnowords/p/10590032.html)
 
 
 ### :whale:【一统江湖的大前端】系列
