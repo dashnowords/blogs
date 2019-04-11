@@ -16,7 +16,8 @@ ___
 [带着canvas去流浪（3）绘制饼图](https://www.cnblogs.com/dashnowords/p/10574646.html)   
 [带着canvas去流浪（4）绘制散点图](https://www.cnblogs.com/dashnowords/p/10590032.html)   
 [带着canvas去流浪（5）绘制K线图](https://www.cnblogs.com/dashnowords/p/10645679.html)
-[带着canvas去流浪（6）绘制雷达图](https://www.cnblogs.com/dashnowords/p/10656750.html)
+[带着canvas去流浪（6）绘制雷达图](https://www.cnblogs.com/dashnowords/p/10656750.html)   
+[带着canvas去流浪（7）绘制水球图](https://www.cnblogs.com/dashnowords/p/10692243.html)
 
 
 ### :whale:【一统江湖的大前端】系列
