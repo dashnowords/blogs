@@ -51,7 +51,9 @@ ___
 [javascript基础修炼(8)—指向FP世界的箭头函数](https://www.cnblogs.com/dashnowords/p/9807398.html)    
 [javascript基础修炼(9)——MVVM中双向数据绑定的基本原理](https://www.cnblogs.com/dashnowords/p/9955460.html)   
 [javascript基础修炼(10)——VirtualDOM和基本DFS](https://www.cnblogs.com/dashnowords/p/10030036.html)   
-[javascript基础修炼(11)——DOM-DIFF的实现](https://www.cnblogs.com/dashnowords/p/10098152.html)   
+[javascript基础修炼(11)——DOM-DIFF的实现](https://www.cnblogs.com/dashnowords/p/10098152.html)    
+
+[javascript基础修炼(12)——手把手教你造一个简易的require.js](https://www.cnblogs.com/dashnowords/p/10816039.html)  
 
 ### :art:【Webpack4.0中级教程】系列
 
