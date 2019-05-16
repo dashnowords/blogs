@@ -29,6 +29,8 @@ ___
 
 [带着canvas去流浪（9）粒子动画](https://www.cnblogs.com/dashnowords/p/10827576.html)
 
+[带着canvas去流浪（10）文字烟花](https://www.cnblogs.com/dashnowords/p/10878409.html)
+
 
 ### :whale:【一统江湖的大前端】系列
 
