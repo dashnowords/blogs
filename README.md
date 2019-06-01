@@ -17,6 +17,8 @@ ___
 
 [nodejs原理&源码赏析（3）欣赏手术级的原型链加工艺术]( https://www.cnblogs.com/dashnowords/p/10920388.html) 
 
+[nodejs原理&源码赏析（4）深度剖析cluster模块源码与node.js多进程（上）](https://www.cnblogs.com/dashnowords/p/10958457.html) 
+
 
 ### :angel:【带着canvas去流浪】系列
 
