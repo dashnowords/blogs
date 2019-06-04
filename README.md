@@ -19,6 +19,8 @@ ___
 
 [nodejs原理&源码赏析（4）深度剖析cluster模块源码与node.js多进程（上）](https://www.cnblogs.com/dashnowords/p/10958457.html) 
 
+[nodejs原理&源码赏析（5）net模块与通讯的实现](https://www.cnblogs.com/dashnowords/p/10976552.html) 
+
 
 ### :angel:【带着canvas去流浪】系列
 
