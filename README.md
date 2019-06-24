@@ -23,7 +23,9 @@ ___
 
 [nodejs原理&源码赏析（6）深度剖析cluster模块源码与node.js多进程（下）](https://www.cnblogs.com/dashnowords/p/11019089.html)   
 
-[nodejs原理&源码赏析（7）【译】Node.js中的事件循环，定时器和process.nextTick](https://www.cnblogs.com/dashnowords/p/11042623.html)
+[nodejs原理&源码赏析（7）【译】Node.js中的事件循环，定时器和process.nextTick](https://www.cnblogs.com/dashnowords/p/11042623.html)   
+
+[nodejs原理&源码杂记（8）Timer模块与基于二叉堆的定时器](https://www.cnblogs.com/dashnowords/p/11078891.html)
 
 
 ### :angel:【带着canvas去流浪】系列
