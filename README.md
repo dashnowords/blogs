@@ -226,10 +226,11 @@ ___
 [【响应式编程的思维艺术】 （5）Angular中Rxjs的应用示例](https://www.cnblogs.com/dashnowords/p/10409224.html)   
 
 
-### :pencil:【2018年随笔】
+### :pencil:【随笔】
 
 ___
 
+[如何查看jsplumb.js的API文档(YUIdoc的基本使用)](https://www.cnblogs.com/dashnowords/p/11166725.html)   
 
 [笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)   
 
