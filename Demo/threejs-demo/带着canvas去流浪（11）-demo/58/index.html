@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test three</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="three.js"></script>
+    <script src="examples/js/controls/OrbitControls.js"></script>
+    <script src="threeinit.js"></script>
+    <script>
+        /*
+          全局变量已在threeinit.js中初始化完毕
+          包括场景scene,渲染器render，透视相机camera, 环境光light,启动渲染需要执行render();
+        */
+        var geometry = new THREE.BoxGeometry(10, 10, 10);
+        var material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+        var cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        function onMouseClick(event) {
+
+            // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
+
+            mouse.x = (event.clientX / 1500) * 2 - 1;
+            mouse.y = - (event.clientY / 800) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+
+            var intersects = raycaster.intersectObjects(scene.children);
+            if(intersects.length >0){
+                console.log(intersects);
+            }
+
+            for(let i = 0; i < intersects.length; i++){
+                intersects[i].object.material.color.set(0x3498db);
+            }
+        }
+
+        window.addEventListener( 'click', onMouseClick, false );
+
+        render();
+
+    </script>
+</body>
+
+</html>

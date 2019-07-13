@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test three</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="three.js"></script>
+    <script src="examples/js/controls/OrbitControls.js"></script>
+    <script src="threeinit.js"></script>
+    <script>
+        /*
+          全局变量已在threeinit.js中初始化完毕
+          包括场景scene,渲染器render，透视相机camera, 环境光light,启动渲染需要执行render();
+        */
+
+        var map = new THREE.TextureLoader().load("http://localhost:3333/examples/textures/UV_Grid_Sm.jpg");
+        //定义纹理在水平和垂直方向简单的重复到无穷大。
+        map.wrapS = map.wrapT = THREE.RepeatWrapping;
+        //定义纹理的各向异性
+        map.anisotropy = 16;
+       // var material = new THREE.MeshStandardMaterial({map,side:THREE.DoubleSide});
+        var material = new THREE.MeshStandardMaterial({color: 0xda5961,side: THREE.DoubleSide});
+        var basicMaterial = new THREE.MeshStandardMaterial({color: 0xeaeaea,side: THREE.DoubleSide});
+        
+        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        //球体
+        var sphereGeo = new THREE.SphereGeometry(5,20,20);
+
+        //八面体
+        var octGeo = new THREE.OctahedronGeometry( 10.0, 0 );
+        //长方形平面
+        var plane = new THREE.PlaneGeometry( 200, 200 );
+    
+        obj = new THREE.Mesh(sphereGeo, material);
+        obj.position.set(0,5,0);
+        obj.castShadow = true;
+        planeObj = new THREE.Mesh(plane, basicMaterial);
+        planeObj.receiveShadow = true;
+        planeObj.position.set(0,-0,0);
+        planeObj.rotation.x = -0.5*Math.PI;
+        scene.add(obj);
+        scene.add(planeObj);
+
+        render();
+
+    </script>
+</body>
+
+</html>
