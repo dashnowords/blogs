@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #btn{
+            cursor:pointer;
+            background-color:#353535;
+            padding:50px 100px; 
+            color:white;
+            position:absolute;
+            left:46%;
+            top:50%;
+            font-size:32px;
+        }
+        .hide{
+            display:none;
+        }
+        video{
+            position:absolute;
+            width:200px;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="http://localhost:3333/assets/video_texture/marvel1.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel2.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel3.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel4.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel5.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel6.mp4" preload class="hide" muted></video>
+    <button id="btn">start</button>
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="init.js"></script>
+    <script>
+       
+        //预处理视频贴图
+        createVideoTextures();
+
+        //预加载音频
+        initAudio();
+
+        //音频只能手动初始化
+        document.getElementById('btn').addEventListener('click',function(){
+            document.getElementById('btn').style.display = 'none';
+            startAll();
+        },{once:true})
+
+        function startAll(){
+            //初始化场景
+            initScene();
+            initRender();
+            initCamera();//透视相机
+            //initOrthCamera();//正交相机
+            initLight(AMBIENT_LIGHT);
+            initControls();
+            addAudio();
+            initModel();
+            initVideo();
+        }
+
+        //使用视频预生成texture
+        function createVideoTextures() {
+            videos = Array.from(document.getElementsByTagName('video'));
+            videos.map(v=>{       
+                v.loop = true;
+                var texture = new THREE.VideoTexture(v);
+                texture.wrapS = texture.wrapT =  THREE.ClampToEdgeWrapping;
+                texture.minFilter = THREE.LinearFilter;
+                texture.magFilter = THREE.LinearFilter;
+                texture.format = THREE.RGBFormat;
+                
+                //添加进材料组
+                mats.push(new THREE.MeshBasicMaterial({ map: texture}));
+            });
+        }
+
+        //初始化视频播放
+        function initVideo() {
+            let videos = Array.from(document.getElementsByTagName('video'));
+            videos.map(v=>{
+                v.play();
+            });
+        }
+
+        //初始化模型
+        function initModel() {
+            var length = 70, width = 60;
+
+            var shape = new THREE.Shape();
+            shape.moveTo( 0,0 );
+            shape.lineTo( 0, width );
+            shape.lineTo( length, width );
+            shape.lineTo( length, 0 );
+            shape.lineTo( 0, 0 );
+
+            var extrudeSettings = {
+                steps: 1,
+                depth: 40,
+                bevelEnabled: false,
+            };
+
+            geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+           
+            var mesh = new THREE.Mesh( geometry, mats /*视频贴图生成的素材组*/) ;
+
+            mesh.position.x = -30;
+            mesh.position.y = -20;
+            scene.add( mesh );
+
+            //重建UV贴图映射向量
+            rebuildUVMapping();
+
+            //播放音频
+           // audio.play();
+
+            //开始渲染
+            render();
+        }
+
+        //重构UV Mapping
+        function rebuildUVMapping() {    
+
+            let pos = [
+                new THREE.Vector2(0,0.1),
+                new THREE.Vector2(1,0.1),
+                new THREE.Vector2(1,0.9),
+                new THREE.Vector2(0,0.9),
+            ]
+
+            let uvs = geometry.faceVertexUvs[0];
+
+            //背面
+            geometry.faces[0].materialIndex = 4;
+            geometry.faces[1].materialIndex = 4;
+            uvs[0] = [pos[1], pos[0], pos[3]];
+            uvs[1] = [pos[3], pos[2], pos[1]];
+
+            //正面
+            geometry.faces[2].materialIndex = 0;
+            geometry.faces[3].materialIndex = 0;
+            uvs[2] = [pos[3], pos[0], pos[1]];
+            uvs[3] = [pos[1], pos[2], pos[3]];
+
+            //右面
+            geometry.faces[4].materialIndex = 5;
+            geometry.faces[5].materialIndex = 5;
+            uvs[4] = [pos[0], pos[3], pos[1]];
+            uvs[5] = [pos[3], pos[2], pos[1]];
+
+            //上面
+            geometry.faces[6].materialIndex = 1;
+            geometry.faces[7].materialIndex = 1;
+            uvs[6] = [pos[2], pos[3], pos[1]];
+            uvs[7] = [pos[3], pos[0], pos[1]];
+
+            //左面
+            geometry.faces[8].materialIndex = 2;
+            geometry.faces[9].materialIndex = 2;
+            uvs[8] = [pos[2], pos[1], pos[3]];
+            uvs[9] = [pos[1], pos[0], pos[3]];
+
+            //底面
+            geometry.faces[10].materialIndex = 3;
+            geometry.faces[11].materialIndex = 3;
+            uvs[10] = [pos[0], pos[1], pos[3]];
+            uvs[11] = [pos[1], pos[2], pos[3]];
+           
+            geometry.uvsNeedUpdate = true;
+            controls.autoRotate = true;
+        }
+        
+    </script>
+</body>
+
+</html>
