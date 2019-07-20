@@ -54,7 +54,9 @@ ___
 
 [带着canvas去流浪（10）文字烟花](https://www.cnblogs.com/dashnowords/p/10878409.html)   
 
-[带着canvas去流浪（11）Three.js入门学习笔记](https://www.cnblogs.com/dashnowords/p/11182474.html)
+[带着canvas去流浪（11）Three.js入门学习笔记](https://www.cnblogs.com/dashnowords/p/11182474.html)   
+
+[带着canvas去流浪（12）用Three.js制作简易的MARVEL片头动画（上）](https://www.cnblogs.com/dashnowords/p/11216540.html)      
 
 
 ### :whale:【一统江湖的大前端】系列
