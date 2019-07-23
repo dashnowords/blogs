@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #btn{
+            cursor:pointer;
+            background-color:#353535;
+            padding:50px 100px; 
+            color:white;
+            position:absolute;
+            left:46%;
+            top:40%;
+            font-size:32px;
+        }
+        .hide{
+            display:none;
+        }
+        video{
+            width:300px;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="http://localhost:3333/assets/video_texture/marvel1.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel2.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel3.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel4.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel5.mp4" preload class="hide" muted></video>
+    <video src="http://localhost:3333/assets/video_texture/marvel6.mp4" preload class="hide" muted></video>
+    <button id="btn">start</button>
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="init.js"></script>
+    <script>
+       
+        //预处理视频贴图
+        createVideoTextures();
+
+        //初始化音频
+        initAudio();
+
+        //音频只能手动初始化
+        document.getElementById('btn').addEventListener('click',function(){
+            document.getElementById('btn').style.display = 'none';
+            startAll();
+        },{once:true})
+
+        function startAll(){
+            //初始化场景
+            initScene();
+            initRender();
+            initOrthCamera();//正交相机
+            initLight(AMBIENT_LIGHT);
+            initControls();//初始化控制器，调试用
+            addAudio();
+            initFontModel();
+            initVideo();
+        }
+
+        //使用视频预生成texture
+        function createVideoTextures() {
+            videos = Array.from(document.getElementsByTagName('video'));
+            videos.map(v=>{       
+                v.loop = true;
+                var texture = new THREE.VideoTexture(v);
+                texture.wrapS = texture.wrapT =  THREE.ClampToEdgeWrapping;
+                texture.minFilter = THREE.LinearFilter;
+                texture.magFilter = THREE.LinearFilter;
+                texture.format = THREE.RGBFormat;
+                
+                //添加进材料组
+                mats.push(new THREE.MeshBasicMaterial({ map: texture}));
+            });
+        }
+
+
+        //初始化视频播放
+        function initVideo() {
+            let videos = Array.from(document.getElementsByTagName('video'));
+            videos.map(v=>{
+                v.play();
+            });
+        }
+
+        //字体模型
+        function initFontModel() {
+            //模型数据
+            let modelInfo = [{
+                id:0,
+                content:'MA',
+                m_side:mats[3],
+                m_face:mats[1],
+                width:0,
+                cube:null,//指向实体模型
+            },{
+                id:1,
+                content:'RV',
+                m_side:mats[4],
+                m_face:mats[2],
+                width:0,
+                cube:null,//指向实体模型
+            },{
+                id:2,
+                content:'EL',
+                m_side:mats[0],
+                m_face:mats[5],
+                width:0,
+                cube:null,//指向实体模型
+            }]
+
+            var loader = new THREE.FontLoader();
+            //加载字体
+            loader.load("http://localhost:3333/assets/font/helvetiker_bold.typeface.json", function (res) {
+                //新建分组
+                group = new THREE.Group();
+
+                //横向调整字母模型间距时的临时距离记录
+                let tempPos = 0;
+
+                //font_geometry
+                modelInfo = modelInfo.map((m,i)=>{
+                    //生成字体
+                    let font=  new THREE.TextGeometry(m.content,{
+                                    font:res,
+                                    size:140,
+                                    height:140,
+                                    bevelEnabled: false,
+                                    curveSegments: 4
+                                });
+
+                    //计算包围盒尺寸
+                    font.computeBoundingBox();
+                    
+                    // 重构uv贴图
+                    rebuildUV(font);
+                    
+                    //object
+                    let cube = new THREE.Mesh(font, [m.m_face,m.m_side]);
+
+                    //调整初始位置
+                    cube.position.x = - (font.boundingBox.max.x - font.boundingBox.min.x)/2 + tempPos; 
+                    cube.position.y = - (font.boundingBox.max.y - font.boundingBox.min.y)/2; 
+                    cube.position.z = - (font.boundingBox.max.z - font.boundingBox.min.z)/2; 
+
+                    m.cube = cube;
+
+                    //为下一个字母模型计算偏移量
+                    tempPos += font.boundingBox.max.x - font.boundingBox.min.x;
+
+                    //加入分组
+                    group.add(cube);
+
+                    //返回生成的新数组
+                    return m;
+                });
+
+                // 调整字体模型组的角度和位置
+                initModelGroup();
+
+                // 加入舞台
+                scene.add(group);
+
+                //开始渲染
+                render();
+            });
+        }
+
+        //设置模型组的初始位置
+        function initModelGroup() {
+            group.position.x = -350;
+            group.rotation.x = -90 * Math.PI / 180;
+            group.rotation.z = 50 * Math.PI / 180;
+        }
+
+
+        //移动物体模拟相机轨迹
+        windowWidth = window.innerWidth / 4;
+        //动画速度
+        step = 1.6;
+        //旋转动画速度
+        rotationStep = 0.2;
+
+        //模拟相机移动轨迹
+        function mockCameraTrack() {
+            //1.初始轨迹调整相机参数，将镜头拉远
+            if (camera.right < windowWidth) {   
+                
+                //镜头位置
+                camera.left -= step;
+                camera.right += step;
+                camera.top += step;
+                camera.bottom -= step;
+            }
+            
+            //2.到达预设时间时开始反转
+            if (group.rotation.x < 0){
+                  if(windowWidth - camera.right < 200){
+                      step = 3;
+                      rotationStep = 0.6;
+                  }
+                group.position.x += 0.2 * step;
+                group.rotation.x += rotationStep * Math.PI / 180;
+                group.rotation.z -= (rotationStep * 5 / 9) * Math.PI / 180;
+            }
+
+            //更新相机投影坐标
+            camera.updateProjectionMatrix();
+        }
+
+        //重计算uv贴图部分
+        function rebuildUV(geo) {
+            if(!geo.isGeometry) return;
+            
+            const max = geo.boundingBox.max;
+            const min = geo.boundingBox.min;
+            const offset = new THREE.Vector3(0 - min.x,0 - min.y, 0 - min.z);
+            const range = new THREE.Vector3(max.x  -  min.x,max.y - min.y, max.z - min.z);
+            const faces = geo.faces;
+            
+            geo.faceVertexUvs [0] = []; 
+            
+            for(let i = 0; i< faces.length; i++){
+                const v1 = geo.vertices [faces [i] .a],
+                v2 = geo.vertices [faces [i] .b],
+                v3 = geo.vertices [faces [i] .c]; 
+                
+                //faces[i].normal中为归一化的向量，可以表明面的指向
+                if(faces[i].normal.z > 0){
+                    //z > 0 的面面向屏幕正面，与使用者相对。
+                    geo.faceVertexUvs[0].push([
+                        new THREE.Vector2((v1.x+offset.x)/range.x,(v1.y+offset.y)/range.y *0.6 + 0.2),
+                        new THREE.Vector2((v2.x+offset.x)/range.x,(v2.y+offset.y)/range.y *0.6 + 0.2),
+                        new THREE.Vector2((v3.x+offset.x)/range.x,(v3.y+offset.y)/range.y *0.6 + 0.2)
+                    ]);
+                }else if (faces[i].normal.y < 0){
+                    // y < 0 的面为模型下面
+                    geo.faceVertexUvs[0].push([
+                        new THREE.Vector2((v1.x+offset.x)/range.x,(v1.z+offset.z)/range.z *0.6 + 0.2),
+                        new THREE.Vector2((v2.x+offset.x)/range.x,(v2.z+offset.z)/range.z *0.6 + 0.2),
+                        new THREE.Vector2((v3.x+offset.x)/range.x,(v3.z+offset.z)/range.z *0.6 + 0.2),
+                    ]) 
+                } else{
+                    geo.faceVertexUvs[0].push([
+                        new THREE.Vector2(0,0),
+                        new THREE.Vector2(0,0),
+                        new THREE.Vector2(0,0)
+                    ]);
+                }
+            }
+            geo.uvsNeedUpdate = true;
+        }
+        
+    </script>
+</body>
+
+</html>
