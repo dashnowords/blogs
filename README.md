@@ -11,21 +11,15 @@ ___
 
 >  从nodejs源码欣赏编程之美
 
-[nodejs原理&源码赏析（1）express中间件系统的基本实现](https://www.cnblogs.com/dashnowords/p/9683361.html) 
-
-[nodejs原理&源码赏析（2）KOA中间件的基本运作原理](https://www.cnblogs.com/dashnowords/p/10439605.html) 
-
-[nodejs原理&源码赏析（3）欣赏手术级的原型链加工艺术]( https://www.cnblogs.com/dashnowords/p/10920388.html) 
-
-[nodejs原理&源码赏析（4）深度剖析cluster模块源码与node.js多进程（上）](https://www.cnblogs.com/dashnowords/p/10958457.html) 
-
-[nodejs原理&源码赏析（5）net模块与通讯的实现](https://www.cnblogs.com/dashnowords/p/10976552.html)    
-
-[nodejs原理&源码赏析（6）深度剖析cluster模块源码与node.js多进程（下）](https://www.cnblogs.com/dashnowords/p/11019089.html)   
-
-[nodejs原理&源码赏析（7）【译】Node.js中的事件循环，定时器和process.nextTick](https://www.cnblogs.com/dashnowords/p/11042623.html)   
-
-[nodejs原理&源码杂记（8）Timer模块与基于二叉堆的定时器](https://www.cnblogs.com/dashnowords/p/11078891.html)
+- [nodejs原理&源码赏析（1）express中间件系统的基本实现](https://www.cnblogs.com/dashnowords/p/9683361.html) 
+- [nodejs原理&源码赏析（2）KOA中间件的基本运作原理](https://www.cnblogs.com/dashnowords/p/10439605.html) 
+- [nodejs原理&源码赏析（3）欣赏手术级的原型链加工艺术](https://www.cnblogs.com/dashnowords/p/10920388.html) 
+- [nodejs原理&源码赏析（4）深度剖析cluster模块源码与node.js多进程（上）](https://www.cnblogs.com/dashnowords/p/10958457.html) 
+- [nodejs原理&源码赏析（5）net模块与通讯的实现](https://www.cnblogs.com/dashnowords/p/10976552.html)    
+- [nodejs原理&源码赏析（6）深度剖析cluster模块源码与node.js多进程（下）](https://www.cnblogs.com/dashnowords/p/11019089.html)   
+- [nodejs原理&源码赏析（7）【译】Node.js中的事件循环，定时器和process.nextTick](https://www.cnblogs.com/dashnowords/p/11042623.html)   
+- [nodejs原理&源码杂记（8）Timer模块与基于二叉堆的定时器](https://www.cnblogs.com/dashnowords/p/11078891.html)   
+- [nodejs原理&源码赏析（9）用node-ssh实现轻量级自动化部署](https://www.cnblogs.com/dashnowords/p/11293667.html)
 
 
 ### :angel:【带着canvas去流浪】系列
