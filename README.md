@@ -168,6 +168,7 @@ ___
 
 ___
 
+- [Vue中拆分视图层代码的5点建议](https://www.cnblogs.com/dashnowords/p/11354469.html)     
 - [如何查看jsplumb.js的API文档(YUIdoc的基本使用)](https://www.cnblogs.com/dashnowords/p/11166725.html)   
 - [笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)   
 - [React组件方法中为什么要绑定this](https://www.cnblogs.com/dashnowords/p/9343383.html)   
