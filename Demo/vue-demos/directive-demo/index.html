@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Directive练习</title>
+    <script src="./vue.min.js"></script>
+    <style>
+       .panel{
+           border:1px solid black;
+           border-style:dashed;
+           width:200px;
+       }
+       ul{
+           list-style: none;
+           padding-left:0;
+       }
+       li{
+           padding:10px;
+           border:1px solid #353535;
+       }
+    </style>
+</head>
+<body>
+    <div id="app" v-clickoutside="onListClick">
+        <button @click="onClickBtn">Click To Show</button>
+        <ul class="panel" v-if="showMenu">
+            <li>Item1</li>
+            <li>Item2</li>
+            <li>Item3</li>
+            <li>Item4</li> 
+        </ul>    
+    </div>
+
+
+    <script>
+      //定义指令
+      Vue.directive('clickoutside',{
+          bind:function (el, binding){
+              //定义监听器
+              function handler(e) {
+                  if (el.contains(e.target)) {
+                      return false;
+                  }
+                  if (binding.expression){
+                      binding.value(e);
+                  }
+              }
+              el.__clickOutSide__ = handler;
+              document.addEventListener('click', handler);
+
+              if (!binding.modifiers.esc) {
+                  return;
+              }
+
+              //定义键盘输入监听
+              function handleKeyUp(e) {
+                  if (e.keyCode === 27 && binding.expression) {
+                      binding.value(e);
+                  }
+              }
+              el.__keyUp__ = handleKeyUp;
+              document.addEventListener('keyup', handleKeyUp);
+          },
+          unbind:function (el) {
+              document.removeEventListener('click',el.__clickOutSide__);
+              delete el.__clickOutSide__ ;
+              if (!binding.modifiers.esc) {
+                  return;
+              }
+              document.removeEventListener('keyup', el.__keyUp__);
+              delete el.__keyUp__ ;
+          }
+      });
+
+      //实例化组件
+      let vue = new Vue({
+         el:'#app',
+         data(){
+             return {
+                 showMenu:false
+             }
+         },
+         methods:{
+             onClickBtn:function(){
+                 this.showMenu = !this.showMenu;
+             },
+             onListClick:function(){
+                 this.showMenu = false;
+             }
+         }
+      });
+    </script>
+</body>
+</html>
