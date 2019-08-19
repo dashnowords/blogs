@@ -27,7 +27,7 @@ ___
 ___
 
 >  用原生CanvasAPI实现Echarts图表
-   
+
 - [带着canvas去流浪（1）绘制柱状图](https://www.cnblogs.com/dashnowords/p/10506921.html)  
 - [带着canvas去流浪（2）绘制折线图](https://www.cnblogs.com/dashnowords/p/10554552.html)   
 - [带着canvas去流浪（3）绘制饼图](https://www.cnblogs.com/dashnowords/p/10574646.html)   
@@ -47,7 +47,7 @@ ___
 ___
 
 >  探索前端技术在网页之外的花花世界
-   
+
 - [一统江湖的大前端（1）PPT制作库impress.js](https://www.cnblogs.com/dashnowords/p/9609301.html)   
 - [一统江湖的大前端（2）Mock.js + Node.js 如何与后端潇洒分手](https://www.cnblogs.com/dashnowords/p/9632492.html)   
 - [一统江湖的大前端（3） DOClever——你的postman有点low](https://www.cnblogs.com/dashnowords/p/9609307.html)   
@@ -62,7 +62,7 @@ ___
 ___
 
 > javascript的基础知识学习笔记。
-   
+
 - [javascript基础修炼(1)—一道十面埋伏的原型链面试题](https://www.cnblogs.com/dashnowords/p/9404237.html)   
 - [javascript基础修炼(2)—What's this(上)](https://www.cnblogs.com/dashnowords/p/9410495.html)   
 - [javascript基础修炼(3)—What's this(下)](https://www.cnblogs.com/dashnowords/p/9410498.html)   
@@ -81,7 +81,7 @@ ___
 ___
 
 > 详解webpack4.0，但不仅仅是关于`webpack`。
-   
+
 - [史上最走心webpack4.0中级教程——配置之外你应该知道的事](https://www.cnblogs.com/dashnowords/p/9572755.html)    
 - [webpack4.0各个击破（1）—— html部分](https://www.cnblogs.com/dashnowords/p/9478777.html)   
 - [webpack4.0各个击破（2）—— CSS篇](https://www.cnblogs.com/dashnowords/p/9520414.html)   
@@ -100,7 +100,7 @@ ___
 ___
 
 > 前端工程化及前端自动化相关技术。
-   
+
 - [大前端的自动化工厂（1）——Yeoman](https://www.cnblogs.com/dashnowords/p/9460705.html)   
 - [大前端的自动化工厂（2）—— SB Family](https://www.cnblogs.com/dashnowords/p/9460722.html)   
 - [大前端的自动化工厂（3）—— babel](https://www.cnblogs.com/dashnowords/p/9537311.html)   
@@ -112,7 +112,7 @@ ___
 ___
 
 > 用javascript语言学习和练习数据结构和基础算法知识。
-   
+
 - [【随笔】野生在左 科班在右——数据结构学习誓师贴](https://www.cnblogs.com/dashnowords/p/9736499.html)
 - [野生前端的数据结构基础练习（1）——栈](https://www.cnblogs.com/dashnowords/p/9737665.html)   
 - [野生前端的数据结构基础练习（2）——队列](https://www.cnblogs.com/dashnowords/p/9739481.html)   
@@ -134,7 +134,7 @@ ___
 ___
 
 > `Angularjs1.X`基本用法以外你应该知道的事情。
-   
+
 - [Angularjs1.X进阶笔记（1）两种不同的双向数据绑定](https://www.cnblogs.com/dashnowords/p/9325775.html)   
 - [Angularjs1.X进阶笔记（2）自定义指令中的数据绑定](https://www.cnblogs.com/dashnowords/p/9332548.html)   
 - [Angularjs1.X进阶笔记（3）如何重构controller](https://www.cnblogs.com/dashnowords/p/10125707.html)   
@@ -145,7 +145,7 @@ ___
 ___
 
 > `Angular`全家桶学习笔记，推荐，翻译优质博文。
-   
+
 - [【Angular专题】——（1）Angular，孤傲的变革者](https://www.cnblogs.com/dashnowords/p/10087041.html)   
 - [【Angular专题】——（2）【译】Angular中的ForwardRef](https://www.cnblogs.com/dashnowords/p/10123696.html)   
 - [【Angular专题】（3）装饰器decorator，一块语法糖](https://www.cnblogs.com/dashnowords/p/10158537.html)   
@@ -156,7 +156,7 @@ ___
 ___
 
 > 探索函数式编程和响应式编程的有趣世界，剖析rxjs的使用方法。
-   
+
 - [【响应式编程的思维艺术】 （1）Rxjs专题学习计划](https://www.cnblogs.com/dashnowords/p/10133782.html)   
 - [【响应式编程的思维艺术】 （2）响应式Vs面向对象](https://www.cnblogs.com/dashnowords/p/10163367.html)   
 - [【响应式编程的思维艺术】 （3）flatMap背后的代数理论Monad](https://www.cnblogs.com/dashnowords/p/10176213.html)   
@@ -168,6 +168,7 @@ ___
 
 ___
 
+- [Vue-Router中History模式](https://www.cnblogs.com/dashnowords/p/11379815.html)
 - [Vue中拆分视图层代码的5点建议](https://www.cnblogs.com/dashnowords/p/11354469.html)     
 - [如何查看jsplumb.js的API文档(YUIdoc的基本使用)](https://www.cnblogs.com/dashnowords/p/11166725.html)   
 - [笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)   
