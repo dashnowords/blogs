@@ -3,7 +3,24 @@
 
 **博客园主页地址：**[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
 
-[TOC]
+### :pencil:【随笔】
+
+___   
+
+- [Stanford公开课《编译原理》学习笔记(1~4课) 2019-9-19](https://www.cnblogs.com/dashnowords/p/11552517.html)
+- [Vue源码中compiler部分逻辑梳理（内有彩蛋） 2019-9-10](https://www.cnblogs.com/dashnowords/p/11502736.html)   
+- [Vue+ElementUI项目使用webpack输出MPA 2019-9-1](https://www.cnblogs.com/dashnowords/p/11415211.html)
+- [Vue-Router中History模式](https://www.cnblogs.com/dashnowords/p/11379815.html)
+- [Vue中拆分视图层代码的5点建议](https://www.cnblogs.com/dashnowords/p/11354469.html)     
+- [如何查看jsplumb.js的API文档(YUIdoc的基本使用)](https://www.cnblogs.com/dashnowords/p/11166725.html)   
+- [笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)   
+- [React组件方法中为什么要绑定this](https://www.cnblogs.com/dashnowords/p/9343383.html)   
+- [2018年8月中级前端开发推荐书籍](https://www.cnblogs.com/dashnowords/p/9373806.html)   
+- [推荐两个漂亮的编程字体](https://www.cnblogs.com/dashnowords/p/9460695.html)   
+- [【书摘】一种基于Git的版本管理方案](https://www.cnblogs.com/dashnowords/p/9537300.html)   
+- [【Recorder.js+百度语音识别】全栈方案技术细节](https://www.cnblogs.com/dashnowords/p/9557355.html)  
+- [【基于React-Native0.55.4的语音识别】项目全栈方案](https://www.cnblogs.com/dashnowords/p/9841068.html)  
+- [js中如何在不影响既有事件监听的前提下新增监听器](https://www.cnblogs.com/dashnowords/p/9593946.html)
 
 
 ### :telescope:【nodejs原理&源码赏析】系列
@@ -164,21 +181,5 @@ ___
 - [【响应式编程的思维艺术】 （5）Angular中Rxjs的应用示例](https://www.cnblogs.com/dashnowords/p/10409224.html)   
 
 
-### :pencil:【随笔】
 
-___
-
-- [Vue源码中compiler部分逻辑梳理（内有彩蛋）](https://www.cnblogs.com/dashnowords/p/11502736.html)   
-- [Vue+ElementUI项目使用webpack输出MPA](https://www.cnblogs.com/dashnowords/p/11415211.html)
-- [Vue-Router中History模式](https://www.cnblogs.com/dashnowords/p/11379815.html)
-- [Vue中拆分视图层代码的5点建议](https://www.cnblogs.com/dashnowords/p/11354469.html)     
-- [如何查看jsplumb.js的API文档(YUIdoc的基本使用)](https://www.cnblogs.com/dashnowords/p/11166725.html)   
-- [笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)   
-- [React组件方法中为什么要绑定this](https://www.cnblogs.com/dashnowords/p/9343383.html)   
-- [2018年8月中级前端开发推荐书籍](https://www.cnblogs.com/dashnowords/p/9373806.html)   
-- [推荐两个漂亮的编程字体](https://www.cnblogs.com/dashnowords/p/9460695.html)   
-- [【书摘】一种基于Git的版本管理方案](https://www.cnblogs.com/dashnowords/p/9537300.html)   
-- [【Recorder.js+百度语音识别】全栈方案技术细节](https://www.cnblogs.com/dashnowords/p/9557355.html)  
-- [【基于React-Native0.55.4的语音识别】项目全栈方案](https://www.cnblogs.com/dashnowords/p/9841068.html)  
-- [js中如何在不影响既有事件监听的前提下新增监听器](https://www.cnblogs.com/dashnowords/p/9593946.html)
 
