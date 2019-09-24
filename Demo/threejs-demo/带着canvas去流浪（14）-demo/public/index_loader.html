@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #btn {
+            cursor: pointer;
+            background-color: #353535;
+            padding: 50px 100px;
+            color: white;
+            position: absolute;
+            left: 46%;
+            top: 40%;
+            font-size: 32px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        video {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="init.js"></script>
+    <script src="GLTFLoader.js"></script>
+    <script>
+
+        startAll();
+
+        function startAll() {
+            //初始化场景
+            /******start of init.js******/
+            initScene();
+            initRender();
+            initCamera();//正交相机
+            initLight(AMBIENT_LIGHT);
+            initControls();//初始化控制器，调试用
+            /******end of init.js******/
+            initFontModel();
+        }
+
+
+        //字体模型
+        function initFontModel() {
+            // instantiate a loader
+            var loader = new THREE.GLTFLoader();
+
+            // load a resource
+            loader.load(
+                // resource URL
+                'assets/marvel.gltf',
+                // called when resource is loaded
+                function (event) {
+                    console.log(event);
+                    event.scene.scale.set(0.2,0.2,0.2);
+                    scene.add(event.scene);
+                    render();
+                },
+                // called when loading is in progresses
+                function (xhr) {
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                },
+                // called when loading has errors
+                function (error) {
+                    console.log('An error happened');
+                }
+            );
+
+        }
+
+    </script>
+</body>
+
+</html>

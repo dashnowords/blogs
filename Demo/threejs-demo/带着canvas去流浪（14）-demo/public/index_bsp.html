@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #btn {
+            cursor: pointer;
+            background-color: #353535;
+            padding: 50px 100px;
+            color: white;
+            position: absolute;
+            left: 46%;
+            top: 40%;
+            font-size: 32px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        video {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="init.js"></script>
+    <script src="ThreeCSG.js"></script>
+    <script>
+
+        startAll();
+
+        function startAll() {
+            //初始化场景
+            /******start of init.js******/
+            initScene();
+            initRender();
+            initOrthCamera();//正交相机
+            initLight(AMBIENT_LIGHT);
+            initControls();//初始化控制器，调试用
+            /******end of init.js******/
+            initFontModel();
+        }
+
+
+        //字体模型
+        function initFontModel() {
+
+            var loader = new THREE.FontLoader();
+            //加载字体
+            loader.load("http://localhost:3334/assets/font/helvetiker_bold.typeface.json", function (font) {
+
+                //生成字体
+                textGeometry = new THREE.ExtrudeGeometry(font.generateShapes('M', 40), {
+                    depth: 40,
+                    bevelEnabled: false,
+                    curveSegments: 4
+                });
+
+                var start_time = (new Date()).getTime();
+                var cube_geometry = new THREE.CubeGeometry(30, 30, 30);
+                var cube_mesh = new THREE.Mesh(cube_geometry);
+                var cube_bsp = new ThreeBSP(cube_mesh);
+                
+                var sphere_geometry = new THREE.CubeGeometry(15, 15, 20);
+                var sphere_mesh = new THREE.Mesh(sphere_geometry);
+                sphere_mesh.position.z = 10;
+                var sphere_bsp = new ThreeBSP(sphere_mesh);
+
+                var subtract_bsp = cube_bsp.subtract(sphere_bsp);
+                var result = subtract_bsp.toMesh(new THREE.MeshLambertMaterial({
+                    color: 0x3498db,
+                    //wireframe:true  
+                }));
+                result.geometry.computeVertexNormals();
+                result.geometry.computeFaceNormals();
+                scene.add(result);
+                //开始渲染
+                render();
+            });
+        }
+
+    </script>
+</body>
+
+</html>
