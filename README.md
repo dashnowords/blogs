@@ -7,7 +7,8 @@
 
 ___   
 
-- [Stanford公开课《编译原理》学习笔记(1~4课) 2019-9-19](https://www.cnblogs.com/dashnowords/p/11552517.html)
+- [Stanford公开课《编译原理》学习笔记（2）递归下降法 2019-10-4 ](https://www.cnblogs.com/dashnowords/p/11632103.html)   
+- [Stanford公开课《编译原理》学习笔记（1）词法分析  2019-9-19](https://www.cnblogs.com/dashnowords/p/11552517.html)
 - [Vue源码中compiler部分逻辑梳理（内有彩蛋） 2019-9-10](https://www.cnblogs.com/dashnowords/p/11502736.html)   
 - [Vue+ElementUI项目使用webpack输出MPA 2019-9-1](https://www.cnblogs.com/dashnowords/p/11415211.html)
 - [Vue-Router中History模式](https://www.cnblogs.com/dashnowords/p/11379815.html)
