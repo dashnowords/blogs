@@ -5,7 +5,7 @@
 
 ### :pencil:【随笔】
 
-___   
+___
 
 - [Stanford公开课《编译原理》学习笔记（2）递归下降法 2019-10-4 ](https://www.cnblogs.com/dashnowords/p/11632103.html)   
 - [Stanford公开课《编译原理》学习笔记（1）词法分析  2019-9-19](https://www.cnblogs.com/dashnowords/p/11552517.html)
@@ -94,7 +94,8 @@ ___
 - [javascript基础修炼(9)——MVVM中双向数据绑定的基本原理](https://www.cnblogs.com/dashnowords/p/9955460.html)   
 - [javascript基础修炼(10)——VirtualDOM和基本DFS](https://www.cnblogs.com/dashnowords/p/10030036.html)
 - [javascript基础修炼(11)——DOM-DIFF的实现](https://www.cnblogs.com/dashnowords/p/10098152.html)    
-- [javascript基础修炼(12)——手把手教你造一个简易的require.js](https://www.cnblogs.com/dashnowords/p/10816039.html)  
+- [javascript基础修炼(12)——手把手教你造一个简易的require.js](https://www.cnblogs.com/dashnowords/p/10816039.html)     
+- [javascript基础修炼(13)——记一道有趣的JS脑洞练习题](https://www.cnblogs.com/dashnowords/p/11663454.html)
 
 ### :art:【Webpack4.0中级教程】系列
 
