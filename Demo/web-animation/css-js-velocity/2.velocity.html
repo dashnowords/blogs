@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition和animation动画对比</title>
+    <style>
+        .btn {
+            left: 0;
+            position: absolute;
+        }
+
+        .box,
+        .box2 {
+            border: 1px solid black;
+            height: 50px;
+            width: 50px;
+        }
+
+        .animation {
+            animation: fadeIn 2s linear;
+        }
+
+        .nodiff {
+            background-color: #1abc9c;
+        }
+
+        .transition {
+            transition: background-color 2s linear;
+        }
+
+        .hover:hover {
+            background-color: #1abc9c;
+        }
+
+        @keyframes fadeIn {
+            to {
+                background-color: #1abc9c;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box nodiff"></div>
+    <script src="./velocity.min.js"></script>
+    <script>
+        window.onload = function () {
+            document.querySelector('.box').velocity({marginLeft:200}, { duration: 2000 , repeat:true});
+        }
+    </script>
+</body>
+
+</html>

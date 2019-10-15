@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition和animation动画对比</title>
+    <style>
+        .box{
+            height:100px;
+            width:100px;
+            display:inline-block;
+        }
+        .animation {
+            animation: fadeIn 2s linear;
+        }
+        .nodiff{
+            background-color: #1abc9c;
+        }
+        .transition{
+            transition: background-color 2s linear;
+        }
+        .hover:hover{
+            background-color: #1abc9c;
+        }
+
+        @keyframes fadeIn {
+            to {
+                background-color: #1abc9c;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+   <h3>transition动画与animation动画特点对比</h3>
+   <div class="box animation">有差异animation</div>
+   <div class="box nodiff animation">无差异animation</div>
+   <div class="box transition">单帧transition</div>
+   <div class="box transition hover">有差异transition</div>
+   <div class="box transition nodiff hover">无差异transition</div>
+</body>
+
+</html>
