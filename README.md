@@ -3,25 +3,50 @@
 
 **博客园主页地址：**[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
 
+### :flags: 【Web高性能动画及渲染原理】系列   （连载中...）
+___
+
+>  了解浏览器渲染流程及动画原理，为性能优化提供论据   
+
+[Web高性能动画及渲染原理（1）CSS动画和JS动画](https://www.cnblogs.com/dashnowords/p/11680067.html)   
+
+
+
 ### :pencil:【随笔】
 
 ___
 
 - [Stanford公开课《编译原理》学习笔记（2）递归下降法 2019-10-4 ](https://www.cnblogs.com/dashnowords/p/11632103.html)   
+
 - [Stanford公开课《编译原理》学习笔记（1）词法分析  2019-9-19](https://www.cnblogs.com/dashnowords/p/11552517.html)
+
 - [Vue源码中compiler部分逻辑梳理（内有彩蛋） 2019-9-10](https://www.cnblogs.com/dashnowords/p/11502736.html)   
+
 - [Vue+ElementUI项目使用webpack输出MPA 2019-9-1](https://www.cnblogs.com/dashnowords/p/11415211.html)
+
 - [Vue-Router中History模式](https://www.cnblogs.com/dashnowords/p/11379815.html)
+
 - [Vue中拆分视图层代码的5点建议](https://www.cnblogs.com/dashnowords/p/11354469.html)     
+
 - [如何查看jsplumb.js的API文档(YUIdoc的基本使用)](https://www.cnblogs.com/dashnowords/p/11166725.html)   
+
 - [笔耕不辍，无问西东——2018年终小结](https://www.cnblogs.com/dashnowords/p/10199126.html)   
+
 - [React组件方法中为什么要绑定this](https://www.cnblogs.com/dashnowords/p/9343383.html)   
+
 - [2018年8月中级前端开发推荐书籍](https://www.cnblogs.com/dashnowords/p/9373806.html)   
+
 - [推荐两个漂亮的编程字体](https://www.cnblogs.com/dashnowords/p/9460695.html)   
+
 - [【书摘】一种基于Git的版本管理方案](https://www.cnblogs.com/dashnowords/p/9537300.html)   
+
 - [【Recorder.js+百度语音识别】全栈方案技术细节](https://www.cnblogs.com/dashnowords/p/9557355.html)  
+
 - [【基于React-Native0.55.4的语音识别】项目全栈方案](https://www.cnblogs.com/dashnowords/p/9841068.html)  
+
 - [js中如何在不影响既有事件监听的前提下新增监听器](https://www.cnblogs.com/dashnowords/p/9593946.html)
+
+  
 
 
 ### :telescope:【nodejs原理&源码赏析】系列
@@ -38,6 +63,7 @@ ___
 - [nodejs原理&源码赏析（7）【译】Node.js中的事件循环，定时器和process.nextTick](https://www.cnblogs.com/dashnowords/p/11042623.html)   
 - [nodejs原理&源码杂记（8）Timer模块与基于二叉堆的定时器](https://www.cnblogs.com/dashnowords/p/11078891.html)   
 - [nodejs原理&源码赏析（9）用node-ssh实现轻量级自动化部署](https://www.cnblogs.com/dashnowords/p/11293667.html)
+
 
 
 ### :angel:【带着canvas去流浪】系列
@@ -62,6 +88,7 @@ ___
 - [带着canvas去流浪（14）Three.js中凹浮雕模型的生成方式](https://www.cnblogs.com/dashnowords/p/11581812.html)   
 
 
+
 ### :whale:【一统江湖的大前端】系列
 
 ___
@@ -75,6 +102,7 @@ ___
 - [一统江湖的大前端（5）editorconfig + eslint——你的代码里藏着你的优雅](https://www.cnblogs.com/dashnowords/p/9632494.html)   
 - [一统江湖的大前端（6）commander.js + inquirer.js——懒，才是第一生产力](https://www.cnblogs.com/dashnowords/p/9632495.html)   
 - [一统江湖的大前端（7）React.js-从开发者到工程师](https://www.cnblogs.com/dashnowords/p/9632496.html)   
+
 
 
 ### :books:【Javascript基础修炼】系列
@@ -97,6 +125,8 @@ ___
 - [javascript基础修炼(12)——手把手教你造一个简易的require.js](https://www.cnblogs.com/dashnowords/p/10816039.html)     
 - [javascript基础修炼(13)——记一道有趣的JS脑洞练习题](https://www.cnblogs.com/dashnowords/p/11663454.html)
 
+
+
 ### :art:【Webpack4.0中级教程】系列
 
 ___
@@ -116,6 +146,7 @@ ___
 - [webpack4.0各个击破（10）—— Integration篇](https://www.cnblogs.com/dashnowords/p/9572754.html)    
 
 
+
 ### :violin:【大前端的自动化工厂】系列
 
 ___
@@ -126,6 +157,7 @@ ___
 - [大前端的自动化工厂（2）—— SB Family](https://www.cnblogs.com/dashnowords/p/9460722.html)   
 - [大前端的自动化工厂（3）—— babel](https://www.cnblogs.com/dashnowords/p/9537311.html)   
 - [大前端的自动化工厂（5）—— 基于Karma+Mocha+Chai的单元测试和接口测试](https://www.cnblogs.com/dashnowords/p/9736491.html)   
+
 
 
 ### :soccer:【野生前端的数据结构和算法基础练习】系列
@@ -150,6 +182,8 @@ ___
 
 
 
+
+
 ### :a:【Angularjs1.X进阶笔记】系列
 
 ___
@@ -161,6 +195,7 @@ ___
 - [Angularjs1.X进阶笔记（3）如何重构controller](https://www.cnblogs.com/dashnowords/p/10125707.html)   
 
 
+
 ### :a:【Angular专题】系列
 
 ___
@@ -170,6 +205,7 @@ ___
 - [【Angular专题】——（1）Angular，孤傲的变革者](https://www.cnblogs.com/dashnowords/p/10087041.html)   
 - [【Angular专题】——（2）【译】Angular中的ForwardRef](https://www.cnblogs.com/dashnowords/p/10123696.html)   
 - [【Angular专题】（3）装饰器decorator，一块语法糖](https://www.cnblogs.com/dashnowords/p/10158537.html)   
+
 
 
 ### :basketball:【响应式编程的思维艺术】系列
