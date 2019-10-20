@@ -8,7 +8,9 @@ ___
 
 >  了解浏览器渲染流程及动画原理，为性能优化提供论据   
 
-[Web高性能动画及渲染原理（1）CSS动画和JS动画](https://www.cnblogs.com/dashnowords/p/11680067.html)   
+[Web高性能动画及渲染原理（1）CSS动画和JS动画 2019-10-10](https://www.cnblogs.com/dashnowords/p/11680067.html)     
+
+[Web高性能动画和渲染原理（2）渲染管线和CPU渲染 2019-10-20](https://www.cnblogs.com/dashnowords/p/11706774.html) 
 
 
 
