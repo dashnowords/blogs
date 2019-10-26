@@ -12,6 +12,8 @@ ___
 
 [Web高性能动画和渲染原理（2）渲染管线和CPU渲染 2019-10-20](https://www.cnblogs.com/dashnowords/p/11706774.html) 
 
+[Web高性能动画和渲染原理（3）transform和opacity为什么高性能 2019-10-26](https://www.cnblogs.com/dashnowords/p/11741892.html)
+
 
 
 ### :pencil:【随笔】
