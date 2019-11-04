@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .btn{
+       padding:12px 16px;
+       background-color:#3498db;
+       color:white;
+       border-radius:2px;
+       border:none;
+       box-shadow:0 1px 4px 1px black;
+    }
+    a{
+        margin-top:20px;
+        text-decoration:none;
+    }
+    </style>
+</head>
+
+<body>
+    <button id="btn" class="btn">点击录制3秒语音</button>
+    <p>设备采样率:  <span id="tips"></span></p>
+    <script>
+        isRecording = false;
+        let constraints = { audio: true };
+        let duration = 3;
+        let chunks = [];
+
+        //采集媒体流
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+                ac = new AudioContext({sampleRate:16000});
+                document.getElementById('tips').innerHTML = ac.sampleRate;
+
+                //创建音频处理的源节点
+                let source = ac.createMediaStreamSource(stream);
+                //创建音频处理的输出节点
+                let dest = ac.createMediaStreamDestination();
+
+                //直接连接
+                source.connect(dest);
+
+                //生成媒体流录制实例
+                let mediaRecorder = window.mediaRecorder = new MediaRecorder(dest.stream, {
+                    mimeType: '',
+                    audioBitsPerSecond: 128000
+                });
+
+                //给录音机绑定事件
+                bindEventsForMediaRecorder(mediaRecorder);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        //按钮控制录音与否
+        document.getElementById('btn').addEventListener('click', function (event) {
+            isRecording = true;
+            window.mediaRecorder.start();
+            setTimeout(() => {
+                isRecording = false;
+                window.mediaRecorder.stop();
+            }, duration * 1000);
+        })
+
+        //给录音机绑定事件
+        function bindEventsForMediaRecorder(mediaRecorder) {
+            mediaRecorder.addEventListener('start', function (event) {
+                console.log('start recording!');
+            });
+            mediaRecorder.addEventListener('stop', function (event) {
+                console.log('stop recording!');
+            });
+            mediaRecorder.addEventListener('dataavailable', function (event) {
+                console.log('request data!');
+                console.log(event.data);
+                //用a标签下载;
+                createDownload(event.data);
+                //用audio标签加载
+                createAudioElement(event.data);
+                
+            });
+        }
+
+        //生成在线预览
+        function createAudioElement(blob) {
+            let url = URL.createObjectURL(blob);
+            const downloadEl = document.createElement('audio');
+            downloadEl.style = 'display: block';
+            downloadEl.controls = true;
+            downloadEl.src = url;
+            document.body.appendChild(downloadEl);
+        }
+
+        //生成下载
+        function createDownload(blob) {
+            let url = URL.createObjectURL(blob);
+            const downloadEl = document.createElement('a');
+            downloadEl.style = 'display: block';
+            downloadEl.innerHTML = '点击下载';
+            downloadEl.href = url;
+            downloadEl.download = 'record.webm';
+            document.body.appendChild(downloadEl);
+        }
+
+    </script>
+</body>
+
+</html>

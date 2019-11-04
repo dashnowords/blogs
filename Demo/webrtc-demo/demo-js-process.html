@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn {
+            padding: 12px 16px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 2px;
+            border: none;
+            box-shadow: 0 1px 4px 1px black;
+        }
+
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn" class="btn">点击录制3秒语音</button>
+    <p>设备采样率: <span id="tips"></span></p>
+    <script>
+        isRecording = false;
+        let constraints = { audio: true };
+        let duration = 3;
+        let sampleRate = 16000;
+        let chunks = [];
+
+        //采集媒体流
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+                ac = new AudioContext({ sampleRate: 16000 });
+                document.getElementById('tips').innerHTML = ac.sampleRate;
+
+                //创建音频处理的源节点
+                let source = ac.createMediaStreamSource(stream);
+                //创建自定义处理节点
+                let scriptNode = ac.createScriptProcessor(4096, 1, 1);
+                //创建音频处理的输出节点
+                let dest = ac.createMediaStreamDestination();
+
+                //串联连接
+                source.connect(scriptNode);
+                scriptNode.connect(dest);
+
+                //定义stream chunk的事件处理
+                scriptNode.onaudioprocess = function (audioProcessingEvent) {
+                    //获取输入流位置
+                    var inputBuffer = audioProcessingEvent.inputBuffer;
+                    //获取输出流位置
+                    var outputBuffer = audioProcessingEvent.outputBuffer;
+                    for (var channel = 0; channel < outputBuffer.numberOfChannels; channel++) {
+                        var inputData = inputBuffer.getChannelData(channel);
+                        var outputData = outputBuffer.getChannelData(channel);
+                        if (isRecording) {
+                            console.log('获取到片段!');
+                            for (let i = 0; i < inputData.length; i = i + 1) {
+                                chunks.push(inputData[i]);
+                            }
+                        }
+                    };
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        //按钮控制录音与否
+        document.getElementById('btn').addEventListener('click', function (event) {
+            isRecording = true;
+            console.log('正在录音...');
+            setTimeout(() => {
+                isRecording = false;
+                console.log('录音结束');
+                //结束录音并重新处理数据
+                processPCMData();
+            }, duration * 1000);
+        })
+
+        //处理原始数据
+        function processPCMData() {
+            //添加前置字节包装为wav格式，然后将float转换为16位深形式
+            let depth16bitArrayBuffer = encodeWAV(chunks);
+
+            //生成一个audio标签听录音结果
+            let blob = new Blob([depth16bitArrayBuffer]);
+            let url = URL.createObjectURL(blob);
+            const downloadEl = document.createElement('audio');
+            downloadEl.style = 'display: block';
+            downloadEl.controls = true;
+            downloadEl.src = url;
+            document.body.appendChild(downloadEl);
+        }
+
+/***************************以下为研究过程中涉及到的功能函数******************************************/
+
+        //重采样方法
+        function Resample() {
+            let reSampleRate = 16000;
+            let r = interleave(chunks, reSampleRate);
+            sourceResample = ac.createBufferSource();
+            myArrayBuffer = ac.createBuffer(1, r.length, reSampleRate);
+            nowBuffering = myArrayBuffer.getChannelData(0);
+
+            for (let i = 0; i < nowBuffering.length; i++) {
+                nowBuffering[i] = r[i];
+            }
+            sourceResample.buffer = myArrayBuffer;
+            sourceResample.connect(ac.destination);
+            sourceResample.start();
+        }
+
+        //重采样辅助方法，简易的间隔丢弃策略
+        function interleave(e, outputSampleRate) {
+            var t = e.length;
+            sampleRate = 44100;
+            var s = 0,
+                o = sampleRate / outputSampleRate, // 2
+                u = Math.ceil(t * outputSampleRate / sampleRate), //
+                a = new Float32Array(u);
+            for (i = 0; i < u; i++) {
+                a[i] = e[Math.floor(s)];
+                s += o;
+            }
+            return a;
+        }
+
+        //输出wav文件，wav是在pcm前增加44个字节的辅助信息
+        function encodeWAV(samples) {
+            let buffer = new ArrayBuffer(44 + samples.length * 2);
+            let view = new DataView(buffer);
+            /* RIFF identifier */
+            writeString(view, 0, 'RIFF');
+            /* RIFF chunk length */
+            view.setUint32(4, 36 + samples.length * 2, true);
+            /* RIFF type */
+            writeString(view, 8, 'WAVE');
+            /* format chunk identifier */
+            writeString(view, 12, 'fmt ');
+            /* format chunk length */
+            view.setUint32(16, 16, true);
+            /* sample format (raw) */
+            view.setUint16(20, 1, true);
+            /* channel count */
+            view.setUint16(22, 1, true);
+            /* sample rate */
+            view.setUint32(24, sampleRate, true);
+            /* byte rate (sample rate * block align) */
+            view.setUint32(28, sampleRate * 4, true);
+            /* block align (channel count * bytes per sample) */
+            view.setUint16(32, 1 * 2, true);
+            /* bits per sample */
+            view.setUint16(34, 16, true);
+            /* data chunk identifier */
+            writeString(view, 36, 'data');
+            /* data chunk length */
+            view.setUint32(40, samples.length * 2, true);
+
+            floatTo16BitPCM(view, 44, samples);
+
+            return view;
+        }
+
+        //辅助方法
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        //float32转换16bit位深pcm
+        function floatTo16BitPCM(output, offset, input) {
+            for (let i = 0; i < input.length; i++ , offset += 2) {
+                let s = Math.max(-1, Math.min(1, input[i]));
+                output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+            }
+        }
+    </script>
+</body>
+
+</html>
