@@ -127,7 +127,8 @@ ___
 - [javascript基础修炼(10)——VirtualDOM和基本DFS](https://www.cnblogs.com/dashnowords/p/10030036.html)
 - [javascript基础修炼(11)——DOM-DIFF的实现](https://www.cnblogs.com/dashnowords/p/10098152.html)    
 - [javascript基础修炼(12)——手把手教你造一个简易的require.js](https://www.cnblogs.com/dashnowords/p/10816039.html)     
-- [javascript基础修炼(13)——记一道有趣的JS脑洞练习题](https://www.cnblogs.com/dashnowords/p/11663454.html)
+- [javascript基础修炼(13)——记一道有趣的JS脑洞练习题](https://www.cnblogs.com/dashnowords/p/11663454.html)   
+- [JavaScript基础修炼(14)——WebRTC在浏览器中如何获得指定格式的PCM数据](https://www.cnblogs.com/dashnowords/p/11795251.html)   
 
 
 
