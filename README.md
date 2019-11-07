@@ -20,6 +20,8 @@ ___
 
 ___
 
+- [高频Linux命令小结（新手向） 2019-11-7](https://www.cnblogs.com/dashnowords/p/11815662.html)
+
 - [Stanford公开课《编译原理》学习笔记（2）递归下降法 2019-10-4 ](https://www.cnblogs.com/dashnowords/p/11632103.html)   
 
 - [Stanford公开课《编译原理》学习笔记（1）词法分析  2019-9-19](https://www.cnblogs.com/dashnowords/p/11552517.html)
