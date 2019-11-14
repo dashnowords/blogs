@@ -14,6 +14,8 @@ ___
 
 [Web高性能动画和渲染原理（3）transform和opacity为什么高性能 2019-10-26](https://www.cnblogs.com/dashnowords/p/11741892.html)
 
+[高性能Web动画和渲染原理系列（4）“Compositor-Pipeline演讲PPT”学习摘要 2019-11-14](https://www.cnblogs.com/dashnowords/p/11862814.html)
+
 
 
 ### :pencil:【随笔】
