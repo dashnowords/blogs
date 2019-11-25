@@ -3,7 +3,13 @@
 
 **博客园主页地址：**[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
 
-### :flags: 【Web高性能动画及渲染原理】系列   （连载中...）
+**近期活动PPT**：[GDG西安DevFest2019-闪电演讲-假如我是一个浏览器PPT](https://github.com/dashnowords/blogs/tree/master/Demo/DevFest2019)
+
+**GDGXi'anDevFest讲师简介**：[仰望星空的人，不应该被嘲笑--DevFest闪电演讲嘉宾--史文强](https://mp.weixin.qq.com/s/7Eb-JfGvQ2x5woI4Z5HYMw)
+
+
+
+### :flags: 【Web高性能动画及渲染原理】系列   
 ___
 
 >  了解浏览器渲染流程及动画原理，为性能优化提供论据   
