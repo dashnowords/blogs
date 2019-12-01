@@ -5,6 +5,8 @@
 
 **近期活动PPT**：[GDG西安DevFest2019-闪电演讲-假如我是一个浏览器PPT](https://github.com/dashnowords/blogs/tree/master/Demo/DevFest2019)
 
+**B站视频地址**: [假如我是一个浏览器](https://www.bilibili.com/video/av77716614?from=search&seid=7599585474375530789)
+
 **GDGXi'anDevFest讲师简介**：[仰望星空的人，不应该被嘲笑--DevFest闪电演讲嘉宾--史文强](https://mp.weixin.qq.com/s/7Eb-JfGvQ2x5woI4Z5HYMw)
 
 
