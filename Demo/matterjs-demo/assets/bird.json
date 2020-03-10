@@ -1,0 +1,16 @@
+{
+    "images": [
+        "/birds.png"
+    ],
+    "frames": {
+        "width": 124,
+        "height": 120,
+        "count": 4
+    },
+    "animations": {
+        "play": {
+            "frames":[0,1,2,3],
+            "speed":0.1
+        }
+    }
+}

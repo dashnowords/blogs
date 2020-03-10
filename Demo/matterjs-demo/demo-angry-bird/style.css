@@ -1,0 +1,5 @@
+#canvas{
+    background: url('../assets/bg.png');
+    background-size: cover;
+    height: 100%;
+}
