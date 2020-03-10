@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愤怒的小鸟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="canvas" width="1022" height="446"></canvas>
+    <script src="../libs/matter.js"></script>
+    <script src="../libs/easeljs.min.js"></script>
+    <script src="angry-bird-vm.js"></script>
+    <script src="angry-bird.js"></script>
+    <script>
+        const woodsize = 86;
+        const rocksize = 86;
+        const ironsize = 124;
+        canvasDOM = document.getElementById('canvas');
+        //创建渲染模型
+        var stage = AngryBirdVM(canvasDOM);
+        //创建物理模型
+        engine = Example.slingshot(canvasDOM, stage);
+    </script>
+</body>
+
+</html>
