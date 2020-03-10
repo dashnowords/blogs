@@ -3,6 +3,14 @@
 
 **博客园主页地址：**[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
 
+
+### :notebook: 【最新】 
+[一统江湖的大前端（8）matter.js 经典物理 2020-3-10](https://www.cnblogs.com/dashnowords/p/12458335.html)
+
+
+
+### :apple: 【活动】 
+
 **近期活动PPT**：[GDG西安DevFest2019-闪电演讲-假如我是一个浏览器PPT](https://github.com/dashnowords/blogs/tree/master/Demo/DevFest2019)
 
 **B站视频地址**: [假如我是一个浏览器](https://www.bilibili.com/video/av77716614?from=search&seid=7599585474375530789)
@@ -122,6 +130,7 @@ ___
 - [一统江湖的大前端（5）editorconfig + eslint——你的代码里藏着你的优雅](https://www.cnblogs.com/dashnowords/p/9632494.html)   
 - [一统江湖的大前端（6）commander.js + inquirer.js——懒，才是第一生产力](https://www.cnblogs.com/dashnowords/p/9632495.html)   
 - [一统江湖的大前端（7）React.js-从开发者到工程师](https://www.cnblogs.com/dashnowords/p/9632496.html)   
+- [一统江湖的大前端（8）matter.js 经典物理 2020-3-10]   (https://www.cnblogs.com/dashnowords/p/12458335.html)   
 
 
 
