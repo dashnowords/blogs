@@ -1,0 +1,32 @@
+p {
+    font-size: 13px;
+}
+
+button {
+    border: none;
+    background-color: #353535;
+    padding: 10px 16px;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
+#ctrlPanel {
+    display: inline-block;
+}
+
+.wrapper {
+    display: inline-block;
+    margin-left:40px;
+    vertical-align: top;
+    width: 960px;
+    line-height: 36px;
+    text-align: center;
+    color: #999;
+}
+
+canvas {
+    background: #353535;
+}

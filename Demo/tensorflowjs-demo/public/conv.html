@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卷积层的工作原理</title>
+</head>
+
+<body>
+    <div>
+        <canvas id="canvas" width="400" height="265"></canvas>
+        <canvas id="canvas1" width="400" height="265"></canvas>
+        <canvas id="canvas2" width="400" height="265"></canvas>
+        <canvas id="canvas3" width="400" height="265"></canvas>
+        <script>
+            const canvasDOM = document.getElementById('canvas');
+            const ctx = canvasDOM.getContext('2d');
+            const ctx1 = document.getElementById('canvas1').getContext('2d');
+            const ctx2 = document.getElementById('canvas2').getContext('2d');
+            const ctx3 = document.getElementById('canvas3').getContext('2d');
+
+            //获取图像的尺寸和像素数据
+            // 水平边缘检测
+            let filter1 = [
+                -1, -2, -1,
+                0, 0, 0,
+                1, 2, 1
+            ];
+            // 垂直边缘检测
+            let filter2 = [
+                -1, 0, 1,
+                -2, 0, 2,
+                -1, 0, 1
+            ];
+            // 斜线边缘检测
+            let filter3 = [
+                0, 2, 3,
+                -2, 0, 2,
+                -3, -2, 0
+            ];
+
+            let img = new Image();
+            //加载完毕后绘制
+            img.onload = function(){
+                ctx.drawImage(img, 0, 0);
+                originImage = ctx.getImageData(0, 0, canvasDOM.width, canvasDOM.height);
+                convolutionMatrix(originImage, filter1, ctx1);
+                convolutionMatrix(originImage, filter2, ctx2);
+                convolutionMatrix(originImage, filter3, ctx3);
+            }
+            //加载图片
+            img.src = "cat.jpg";
+
+
+            //卷积计算
+            function convolutionMatrix(input, kernel, outCtx, offset = 0) {
+                let output = outCtx.createImageData(input)
+                let w = input.width,
+                    h = input.height
+                let iD = input.data,
+                    oD = output.data
+                for (let y = 1; y < h - 1; y += 1) {
+                    for (let x = 1; x < w - 1; x += 1) {
+                        for (let c = 0; c < 3; c += 1) {
+                            let i = (y * w + x) * 4 + c
+                            oD[i] =
+                                offset +
+                                (kernel[0] * iD[i - w * 4 - 4] +
+                                    kernel[1] * iD[i - w * 4] +
+                                    kernel[2] * iD[i - w * 4 + 4] +
+                                    kernel[3] * iD[i - 4] +
+                                    kernel[4] * iD[i] +
+                                    kernel[5] * iD[i + 4] +
+                                    kernel[6] * iD[i + w * 4 - 4] +
+                                    kernel[7] * iD[i + w * 4] +
+                                    kernel[8] * iD[i + w * 4 + 4]) 
+                                //反色处理
+                                oD[i] = 255- oD[i]
+                            }
+                        oD[(y * w + x) * 4 + 3] = 255
+                    }
+                }
+                outCtx.putImageData(output, 0, 0)
+            }
+        </script>
+    </div>
+</body>
+
+</html>

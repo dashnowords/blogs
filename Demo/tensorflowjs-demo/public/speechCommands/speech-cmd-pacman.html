@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <title>基于预训练模型speechcommand的语音识别示例</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
+    <script src="lib/speechcommand/speech-commands.js"></script>  
+</head>
+<body>
+    <div id="ctrlPanel">
+        <div>
+            <h4 style="margin-top:0">基于TensorFlow.js官方预训练模型的【迁移学习】</h4>
+            <p>功能：识别自定义的长度为1秒的指令</p>
+        </div>
+        <div>
+            <h4>声音样本采集</h4>
+            <p>每个样本时长为1秒,请在按键后读出按钮上的文字</p>
+            <p>已录入样本统计:<span id="sampleSet">暂无</span></p>
+            <button id="left" onmousedown="collect('左')" onmouseup="collect(null)">左</button>
+            <button id="right" onmousedown="collect('右')" onmouseup="collect(null)">右</button>
+            <button id="up" onmousedown="collect('上')" onmouseup="collect(null)">上</button>
+            <button id="down" onmousedown="collect('下')" onmouseup="collect(null)">下</button>
+            <button id="bg" onmousedown="collect('背景')" onmouseup="collect(null)">背景噪声</button>
+        </div>
+        <div>
+            <h4>训练模型</h4>
+            <button id="train" onclick="train()">开始训练</button>
+            <p>训练信息:<span id="progressInfo">暂无</span></p>
+        </div>
+        <div>
+            <h4>使用模型</h4>
+            <button id="predict" onclick="predictWord()">开始游戏</button>
+            <p>可识别的命令:<span id="commands"></span></p>
+            <p>你刚才说的是:<span id="console">暂无</span></p>
+        </div>
+    </div>
+    <div class="wrapper">
+        <canvas id="canvas" width="960" height="640">不支持画布</canvas>
+        <p>按［空格］暂停或继续</p>
+    </div>
+    <!-- 引入吃豆人控制脚本 -->
+    <script src="pacman/game.js"></script>
+    <script src="pacman/index.js"></script>
+    <script>
+        let recognizer;
+        let model;
+        let examples = [];
+        let transferRecognizer; // 迁移学习模型
+        const NUM_FRAMES = 3; // One frame is ~23ms of audio.
+        const sampleSetDOM = document.getElementById('sampleSet');
+        const progressInfoDOM = document.getElementById('progressInfo');
+        const commandsDOM = document.getElementById('commands');
+        const canvasDOM = document.getElementById('canvas');
+        const commandMap = {
+            '左':37,
+            '上':38,
+            '右':39,
+            '下':40
+        }
+
+        app();
+
+        //启动函数
+        async function app() {
+            //使用WebAudio Apis自带的FFT快速傅里叶变换工具
+            recognizer = speechCommands.create('BROWSER_FFT');
+            //加载声音识别的预训练模型
+            await recognizer.ensureModelLoaded();
+            //生成迁移学习模型
+            transferRecognizer = recognizer.createTransfer('chinese');
+        }
+
+        //采集新的声音样本
+        async function collect(label) {
+            if (!label) return;
+            sampleSetDOM.textContent = '正在采样...';
+            await transferRecognizer.collectExample(label);
+            console.log(transferRecognizer.countExamples());
+            sampleSetDOM.textContent = JSON.stringify(transferRecognizer.countExamples());
+        }
+
+        //训练
+        async function train() {
+            await transferRecognizer.train({
+                epochs: 25,
+                callback: {
+                    onEpochEnd: async (epoch, logs) => {
+                        let text = `Epoch ${epoch}: loss=${logs.loss.toFixed(4)}, accuracy=${logs.acc.toFixed(4)}`
+                        progressInfoDOM.textContent = text;
+                        console.log(text);
+                    }
+                }
+            });
+        }
+
+        //预测声音
+        function predictWord() {
+            //触发空格事件启动游戏
+            emitKeybordEvent(32);
+            if (!transferRecognizer) {
+                commandsDOM.textContent = '还没有采集声音指令';
+                return;
+            }
+            // Array of words that the recognizer is trained to recognize.
+            const words = transferRecognizer.wordLabels();
+            commandsDOM.textContent = words;
+            transferRecognizer.listen(({
+                scores
+            }) => {
+                // Turn scores into a list of (score,word) pairs.
+                scores = Array.from(scores).map((s, i) => ({
+                    score: s,
+                    word: words[i]
+                }));
+                // 排序取出预测概率最大的词语
+                scores.sort((s1, s2) => s2.score - s1.score);
+                document.querySelector('#console').textContent = scores[0].word;
+                //触发键盘事件
+                emitKeybordEvent(commandMap[scores[0].word]);
+            }, {
+                probabilityThreshold: 0.75
+            });
+        }
+
+        //生成键盘事件
+        function emitKeybordEvent(code) {
+            let event = new KeyboardEvent('keydown',{
+                code:code,
+                keyCode:code
+            });
+            window.dispatchEvent(event);
+        }
+    </script>
+</body>
+
+</html>
