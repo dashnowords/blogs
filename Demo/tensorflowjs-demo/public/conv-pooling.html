@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卷积层+池化层工作原理</title>
+</head>
+
+<body>
+    <div>
+        <canvas id="canvas" width="400" height="265"></canvas>
+        <canvas id="canvas1" width="400" height="265"></canvas>
+        <canvas id="canvas2" width="400" height="265"></canvas>
+        <canvas id="canvas3" width="400" height="265"></canvas>
+        <script>
+            const canvasDOM = document.getElementById('canvas');
+            const ctx = canvasDOM.getContext('2d');
+            const ctx1 = document.getElementById('canvas1').getContext('2d');
+            const poolCtx = document.getElementById('canvas2').getContext('2d');
+            const ctx3 = document.getElementById('canvas3').getContext('2d');
+
+            //获取图像的尺寸和像素数据
+            // 水平边缘检测
+            let filter1 = [
+                -1, -2, -1,
+                0, 0, 0,
+                1, 2, 1
+            ];
+
+            let img = new Image();
+            //加载完毕后绘制
+            img.onload = function(){
+                ctx.drawImage(img, 0, 0);
+                originImage = ctx.getImageData(0, 0, canvasDOM.width, canvasDOM.height);
+                convolutionMatrix(originImage, filter1, ctx1);
+            }
+            //加载图片
+            img.src = "cat.jpg";
+
+
+            //卷积计算
+            function convolutionMatrix(input, kernel, outCtx, offset = 0) {
+                let output = outCtx.createImageData(input)
+                let w = input.width,
+                    h = input.height
+                let iD = input.data,
+                    oD = output.data
+                for (let y = 1; y < h - 1; y += 1) {
+                    for (let x = 1; x < w - 1; x += 1) {
+                        for (let c = 0; c < 3; c += 1) {
+                            let i = (y * w + x) * 4 + c
+                            oD[i] =
+                                offset +
+                                (kernel[0] * iD[i - w * 4 - 4] +
+                                    kernel[1] * iD[i - w * 4] +
+                                    kernel[2] * iD[i - w * 4 + 4] +
+                                    kernel[3] * iD[i - 4] +
+                                    kernel[4] * iD[i] +
+                                    kernel[5] * iD[i + 4] +
+                                    kernel[6] * iD[i + w * 4 - 4] +
+                                    kernel[7] * iD[i + w * 4] +
+                                    kernel[8] * iD[i + w * 4 + 4])
+                                    oD[i] = 255- oD[i]
+                            }
+                        oD[(y * w + x) * 4 + 3] = 255
+                    }
+                }
+
+                 //池化处理,默认使用2*2的窗口区
+                let poolOut = outCtx.createImageData(w,h);
+                    oD = poolOut.data;
+                    iD = output.data;
+
+                for (let y = 2; y < h-1 ; y += 2) {
+                    for (let x = 2; x < w-1 ; x += 2) {
+                        for (let c = 0; c < 3; c += 1) {
+                            let i = (y * w + x) * 4 + c
+                            oD[(y/2*w+x/2)*4+c] = Math.max(
+                                iD[i - w * 4],
+                                iD[i - w * 4 + 4],
+                                iD[i],
+                                iD[i + 4],
+                            )
+                        oD[(y/2 * w + x/2) * 4 + 3] = 255
+                    }
+                }
+                }
+                
+                //池化层输出点x,y相当于取点(2x,2y)(2x+1,2y)(2x,2y+1)(2x+1,2y+1)的最大值
+                
+         /*        for (let y = 0; y < h; y += 1) {
+                    for (let x = 0; x < w ; x += 1) {
+                        for (let c = 0; c < 3; c += 1) {
+                            let i = (poolSize* y * poolSize* w + poolSize*x) * 4 ;
+                            let i1 = i + 4 ;//右侧点
+                            let i2 = i + w*poolSize ;//下侧点
+                            let i3 = i2 + 4 ;//右下侧点
+                            //最大池化
+                            let maxV = Math.max(oD[i],oD[i1],oD[i2],oD[i3]);
+                            poolOut.data[(y * w + x) * 4 + c] = maxV;
+                        }
+                        poolOut.data[(y * w + x) * 4 + 3] = 255
+                    }
+                }  */
+
+                //缩放绘制卷积层
+                outCtx.putImageData(output, 0, 0);
+                //绘制池化结果
+                poolCtx.putImageData(poolOut, 0, 0)
+            }
+        </script>
+    </div>
+</body>
+
+</html>

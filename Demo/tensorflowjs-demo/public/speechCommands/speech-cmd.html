@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>TensorFlow.js官方speechcommand语音识别示例</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
+    <script src="lib/speechcommand/speech-commands.js"></script>
+    <style>
+         p{
+            font-size:13px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>TensorFlow.js官方speechcommand语音识别示例</h4>
+        <p>可识别英文'zero'~'nine','up','down','left','right','yes','no'</p>
+        <p>你刚才说的是:<span id="console"></span></p>
+    </div>
+
+    <script>
+        let recognizer;
+        let examples = [];
+
+        app();
+
+        //启动函数
+        async function app() {
+            //使用WebAudio Apis自带的FFT快速傅里叶变换工具
+            recognizer = speechCommands.create('BROWSER_FFT');
+            //加载声音识别的预训练模型
+            await recognizer.ensureModelLoaded();
+            //预测声音
+            predictWord();
+        }
+
+        //预测声音
+        function predictWord() {
+            // Array of words that the recognizer is trained to recognize.
+            const words = recognizer.wordLabels();
+            recognizer.listen(({
+                scores
+            }) => {
+                // Turn scores into a list of (score,word) pairs.
+                scores = Array.from(scores).map((s, i) => ({
+                    score: s,
+                    word: words[i]
+                }));
+                // 排序取出预测概率最大的词语
+                scores.sort((s1, s2) => s2.score - s1.score);
+                document.querySelector('#console').textContent = scores[0].word;
+            }, {
+                probabilityThreshold: 0.75
+            });
+        }
+    </script>
+</body>
+
+</html>
