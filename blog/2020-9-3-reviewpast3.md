@@ -1,6 +1,6 @@
 # 10000小时后，我从外包走进了字节跳动
 
-> github总基地：[http://www.github.com/dashnowords/blogs](<https://github.com/dashnowords/blogs/)
+> github总基地：[http://www.github.com/dashnowords/blogs](https://github.com/dashnowords/blogs/)
 >
 > 博客园地址：[《大史住在大前端》原创博文目录](https://www.cnblogs.com/dashnowords/p/10127926.html)
 >
