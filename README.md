@@ -5,7 +5,7 @@
 
 
 ### :notebook: 【最新】 
-[带着canvas去流浪（15）threejs fundamentals翻译系列1-scene graph 【2020-5-10】]( https://www.cnblogs.com/dashnowords/p/12863562.html )
+[10000小时后，我从外包走进了字节跳动【2020-9-3】]( https://github.com/dashnowords/blogs/blob/master/blog/2020-9-3-reviewpast3.md )
 
 
 
@@ -39,6 +39,8 @@ ___
 ### :pencil:【随笔】
 
 ___
+
+- [10000小时后，我从外包走进了字节跳动 2020-9-3]( https://github.com/dashnowords/blogs/blob/master/blog/2020-9-3-reviewpast3.md )
 
 - [2019年12月前端面经及总结(西安,杭州) 2020-2-20](https://www.cnblogs.com/dashnowords/p/12335717.html) 
 
