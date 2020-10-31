@@ -5,9 +5,7 @@
 
 
 ### :notebook: 【最新】 
-[10000小时后，我从外包走进了字节跳动【2020-9-3】]( https://github.com/dashnowords/blogs/blob/master/blog/2020-9-3-reviewpast3.md )
-
-
+[从嵌套结构中取值时如何编写兜底逻辑 2020-10-30](https://www.cnblogs.com/dashnowords/p/13905413.html)
 
 ### :apple: 【活动】 
 
@@ -39,6 +37,8 @@ ___
 ### :pencil:【随笔】
 
 ___
+
+- [从嵌套结构中取值时如何编写兜底逻辑 2020-10-30](https://www.cnblogs.com/dashnowords/p/13905413.html)
 
 - [10000小时后，我从外包走进了字节跳动 2020-9-3]( https://github.com/dashnowords/blogs/blob/master/blog/2020-9-3-reviewpast3.md )
 
