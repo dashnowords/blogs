@@ -5,10 +5,14 @@
 
 ### :notebook: 【最新】 
 
+<<<<<<< HEAD
+[秋招提前批已来，万字长文教你如何增加面试大厂的成功率🔥](https://github.com/dashnowords/blogs/blob/master/blog/2021-7-13%20%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%A4%A7%E5%8E%82%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
+=======
 [字节半年，我的认知升级 2021-2-17](https://github.com/dashnowords/blogs/blob/master/blog/2021-2-17 字节半年，我的认知升级.md) 
 
 
 [一统江湖的大前端（10）inversify.js控制反转 2021-2-6](https://www.cnblogs.com/dashnowords/p/14380955.html)
+>>>>>>> 223b71315a4c42f8981743fb77236bcacc6e9d28
 
 ### :apple: 【活动】 
 
@@ -41,8 +45,14 @@ ___
 
 ___
 
+<<<<<<< HEAD
+- [秋招提前批已来，万字长文教你如何增加面试大厂的成功率🔥](https://github.com/dashnowords/blogs/blob/master/blog/2021-7-13%20%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%A4%A7%E5%8E%82%E9%82%A3%E4%BA%9B%E4%BA%8B.md)  2021-7-10 
+
+- [字节半年，我的认知升级 2021-2-17](https://github.com/dashnowords/blogs/blob/master/blog/2021-2-17%20%E5%AD%97%E8%8A%82%E5%8D%8A%E5%B9%B4%EF%BC%8C%E6%88%91%E7%9A%84%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7.md) 
+=======
 
 - [字节半年，我的认知升级 2021-2-17](https://github.com/dashnowords/blogs/blob/master/blog/2021-2-17 字节半年，我的认知升级.md) 
+>>>>>>> 223b71315a4c42f8981743fb77236bcacc6e9d28
 
 - [从嵌套结构中取值时如何编写兜底逻辑 2020-10-30](https://www.cnblogs.com/dashnowords/p/13905413.html)
 
