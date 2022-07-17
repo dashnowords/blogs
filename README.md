@@ -3,9 +3,11 @@
 
 **博客园主页地址：**[http://www.cnblogs.com/dashnowords](http://www.cnblogs.com/dashnowords)
 
+**掘金主页地址：**[https://juejin.cn/user/2946346892662136](https://juejin.cn/user/2946346892662136)
+
 ### :notebook: 【最新】 
 
-[秋招提前批已来，万字长文教你如何增加面试大厂的成功率🔥 2021-7-10](https://github.com/dashnowords/blogs/blob/master/blog/2021-7-13%20%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%A4%A7%E5%8E%82%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
+[《 前端跨界开发指南-JavaScript工具库原理解析与实战 》随书代码](https://github.com/dashnowords/imfe)
 
 ### :apple: 【活动】 
 
