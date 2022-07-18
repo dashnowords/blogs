@@ -7,7 +7,12 @@
 
 ### :notebook: 【最新】 
 
-[《 前端跨界开发指南-JavaScript工具库原理解析与实战 》随书代码](https://github.com/dashnowords/imfe)
+- [《 前端跨界开发指南-JavaScript工具库原理解析与实战 》随书代码](https://github.com/dashnowords/imfe)
+
+- [写作那些事儿](https://github.com/dashnowords/imfe/blob/main/appendix/%E9%99%84%E5%BD%95A_%E5%86%99%E4%BD%9C%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
+- [学习那些事儿](https://github.com/dashnowords/imfe/blob/main/appendix/%E9%99%84%E5%BD%95B_%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
+- [职场那些事儿](https://github.com/dashnowords/imfe/blob/main/appendix/%E9%99%84%E5%BD%95C_%E8%81%8C%E5%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
+- [面试那些事儿](https://github.com/dashnowords/imfe/blob/main/appendix/%E9%99%84%E5%BD%95D_%E9%9D%A2%E8%AF%95%E9%82%A3%E4%BA%9B%E4%BA%8B.md)
 
 ### :apple: 【活动】 
 
